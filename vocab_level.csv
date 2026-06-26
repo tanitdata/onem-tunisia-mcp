@@ -1,0 +1,8 @@
+level_id,label_fr,label_en,domain,aliases,notes
+lvl.ht,Haute Tension,High voltage,electricity,HT,
+lvl.mt,Moyenne Tension,Medium voltage,electricity,MT,
+lvl.bt,Basse Tension,Low voltage,electricity,BT,
+lvl.hp,Haute Pression,High pressure,gas,HP|Haute pression,
+lvl.mp,Moyenne Pression,Medium pressure,gas,MP,
+lvl.bp,Basse Pression,Low pressure,gas,BP,
+lvl.mbp,Moyenne & Basse Pression,Medium+low pressure,gas,Moy&Basse pression,combined reporting bucket - do not split

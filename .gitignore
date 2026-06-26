@@ -1,0 +1,71 @@
+# --- secrets / local dev state ---
+.env
+.env.*
+.claude/
+*.local.json
+
+# --- python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- large source corpus: NOT re-hosted; fetched from ONEM via acquire.py ---
+archive/
+*.pdf
+
+# NOTE: energy.duckdb is intentionally NOT ignored — the built store ships with the repo.
+
+# --- scraper scratch & agent state (internal, regenerable) ---
+_work/
+memory/
+
+# --- internal agent-to-agent scaffolding & dev logs (excluded from publication) ---
+00_recon.md
+00_alignment_check.md
+07_sample_notes.md
+07_sample_observations.csv
+10_open_questions.md
+audit_round2.md
+audit_round3.md
+audit_round4.md
+audit_round5.md
+audit_round6.md
+audit_coverage.md
+audit_disagreements.md
+audit_ground_truth.md
+audit_low_confidence.md
+audit_mcp_readiness.md
+audit_summary.md
+structural_qa_report.md
+semantic_qa_report.md
+mcp_code_qa_report.md
+mcp_behavioral_qa_report.md
+mcp_tool_surface_qa_report.md
+mcp_qa_synthesis.md
+mcp_fix_report.md
+mcp_fix_report_F1.md
+mcp_fix_report_F3.md
+mcp_fix_report_S1_S2_S3.md
+mcp_doc_gaps.md
+fix_order_consolidated.md
+FIX_ORDER_for_extractor.md
+drift_report.md
+acquisition_summary.md
+CLAUDE_proposals.md
+publication_plan.md
+
+# --- development-process docs (removed from publication) ---
+CLAUDE.md
+README_mcp.md
+01_source_inventory.md
+02_controlled_vocabulary.md
+05_reconciliation_map.md
+06_proposed_schema.sql
+06_schema_rationale.md
+08_ingestion_design.md
+09_mcp_readiness.md
+11_human_rulings.md
+
+# demo video lives as a GitHub user-attachments asset, not in-repo
+demo_medias/

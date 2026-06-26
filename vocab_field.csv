@@ -1,0 +1,31 @@
+field_id,label,produces,aliases,notes
+field.ashtart,Ashtart,oil,,
+field.el_borma,El Borma,oil_gas,,also in Gaz Com Sud aggregate
+field.el_hajeb_guebiba,El Hajeb/Guebiba,oil,,
+field.sidi_marzoug,Sidi Marzoug,oil_gas,Sidi marzoug|SMG,in Franig/Sabria/Ghrib/SidiMarzoug gas aggregate
+field.adam,Adam,oil_gas,,in Gaz Com Sud
+field.nawara,Nawara,oil_gas,Nawara et Chalbia,gas commercialised 29/03/2020
+field.gherib,Gherib,oil_gas,Ghrib|Gherib,GPL-primaire excludes Ghrib
+field.hasdrubal,Hasdrubal,oil_gas,,
+field.cercina,Cercina,oil,,
+field.halk_el_menzel,Halk el Menzel,oil,Halk el Manzel,dedup spelling
+field.miskar,Miskar,oil_gas,,major gas field
+field.mld,M.L.D,oil,,
+field.cherouq,Cherouq,oil_gas,Cherouk,in Gaz Com Sud
+field.ouedzar,Ouedzar,oil_gas,Oued Zar,in Gaz Com Sud
+field.franig_baguel_trafa,Franig Baguel Trafa,oil_gas,Franig/Bag/Tarfa|El Franig B.T.|Franig B.T.,GPL-primaire excludes Franig/Baguel/Terfa
+field.bir_tartar,Bir Tartar,oil,Bir Ben Tartar|Bir Tartar,
+field.barka,Barka,oil,Baraka,distinct from Maâmoura et Baraka? OQ-F2
+field.ezzaouia,Ezzaouia,oil,,in commentary not in C-T10 rows
+field.chergui,Chergui,oil_gas,Gaz Chergui,
+field.chalbia_benefsej,Chalbia + Benefsej,gas,Chalbia|Benefsej,gas aggregate
+field.maamoura_baraka,Maâmoura et Baraka,gas,,
+field.sabria,Sabria,gas,,in Franig aggregate
+field.djebel_grouz,Djebel Grouz,oil_gas,Djbel Grouz|PDG,in Gaz Com Sud; PDG-5 well
+field.durra,Durra,gas,,in Gaz Com Sud
+field.anaguid_est,Anaguid Est,gas,,in Gaz Com Sud
+field.bochra,Bochra,gas,Bouchra,in Gaz Com Sud
+field.abir,Abir,gas,,in Gaz Com Sud
+field.gaz_com_sud,Gaz Commercial du Sud,gas,Gaz Com. de Sud|Gaz Com Sud|Gaz commercial du sud,AGGREGATE - member list differs Memento vs Conjoncture OQ-F1
+field.autres,Autres,oil_gas,Autres champs,residual bucket
+field.el_bibene,El Bibene,gas,El Bibene,gas field (appears C-T11/12 from ~2024)

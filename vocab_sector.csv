@@ -1,0 +1,21 @@
+sector_id,label_fr,label_en,parent,aliases,notes
+sect.industry,Industrie,Industry,,Industries,
+sect.ind_metal,Fabrications métalliques y compris sidérurgie,Metal industry incl. iron & steel,sect.industry,,
+sect.ind_chemical,Chimie,Chemical industry,sect.industry,Industrie chimique et pétrolière,
+sect.ind_nonmetallic,Produits minéraux non métalliques,Non-metallic mineral products,sect.industry,Matériaux de construction|Cimenteries,petcoke user
+sect.ind_extraction,Extraction,Ore-extraction industry,sect.industry,استغلال المحاجر,
+sect.ind_food,"Alimentation, boisson, tabac",Food drink & tobacco,sect.industry,,
+sect.ind_textile,"Textiles, cuir, habillement",Textile leather & clothing,sect.industry,,
+sect.ind_paper,Papier et imprimerie,Paper & printing,sect.industry,Industrie du papier et de l'édition,
+sect.ind_mechelec,Fabrications mécaniques et électriques,Mechanical & electrical equipment,sect.industry,,
+sect.ind_other,Autres industries,Other industries,sect.industry,,
+sect.transport,Transport,Transport,,,
+sect.transport_rail,Ferroviaires,Railways,sect.transport,,
+sect.transport_road,Routes,Road transport,sect.transport,Carburants routiers,
+sect.transport_air,Aériens,Air transport,sect.transport,,domestic
+sect.transport_pipeline,Pipeline,Pipeline,sect.transport,,
+sect.residential_commercial,"Foyers domestiques, commerce, adm, etc.","Households, commerce, pub. auth.",,,
+sect.residential,Foyers domestiques,Households,sect.residential_commercial,Résidentiel,
+sect.commercial,"commerce, adm, Hôtels, etc.","commerce, admin, hotels",sect.residential_commercial,Tertiaire|Services|Tourisme,
+sect.agriculture,Agriculture et pêche,Agriculture and fishing,,Pompage agricole|Pompages,EN typo peach
+sect.sanitary,Sanitaires,Sanitary/water,,,Conjoncture HT&MT pie only

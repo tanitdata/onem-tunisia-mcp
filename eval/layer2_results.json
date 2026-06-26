@@ -1,0 +1,3016 @@
+{
+  "layer": 2,
+  "model": "us.anthropic.claude-opus-4-8",
+  "backend": "bedrock",
+  "runs": 5,
+  "per_task": [
+    {
+      "task_id": "T01",
+      "category": "series_misselection",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_calorific_basis_named": true,
+            "qualifier_period_type_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "natural gas production Miskar field PCI annual"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Natural gas production at the **Miskar** field in **2024** was **317 ktep** on a **PCI (lower heating value)** basis, in **annual** terms (full calendar year 2024-01-01 to 2024-12-31).\n\nQualifiers and caveats:\n- **Basis:** PCI (ktep-pci) — not to be blended with PCS figures.\n- **Period:** annual (full year), not year-to-date cumulative.\n- **Scope:** `commercial_dry` (accounted dry commercial natural gas / gaz sec), a leaf series — not the broad primary production.\n- ⚠️ **Data status: provisional** — this is sourced from the Memento 2024 (source M-T6, page 6) and is not yet a final figure.",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_calorific_basis_named": true,
+            "qualifier_period_type_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "natural gas production Miskar field PCI annual"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Natural gas production at the **Miskar** field in **2024** was **317 ktep** on a **PCI** basis, in **annual** terms (full calendar year 2024).\n\nImportant qualifiers:\n- **Basis:** PCI (lower heating value) — do not blend with PCS figures.\n- **Period:** Annual (Jan–Dec 2024).\n- **Scope:** `commercial_dry` (accounted dry commercial natural gas / gaz sec).\n- **Data status:** ⚠️ **Provisional** — this is not yet a final figure (source: Memento 2024, table M-T6).",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_calorific_basis_named": true,
+            "qualifier_period_type_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Miskar field natural gas production PCI annual"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Natural gas production at the **Miskar** field in **2024** was **317 ktep** on a **PCI (lower heating value)** basis, in **annual** terms.\n\nQualifiers and caveats:\n- **Basis:** PCI (pouvoir calorifique inférieur) — do not blend with PCS figures.\n- **Period type:** annual (full calendar year, 2024-01-01 to 2024-12-31) — not a year-to-date cumulative.\n- **Scope:** commercial_dry (gaz sec, accounted dry commercial natural gas).\n- **⚠️ Data status:** This figure is **provisional** (from Memento 2024, M-T6), not yet a final value.",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_calorific_basis_named": true,
+            "qualifier_period_type_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Miskar field natural gas production PCI annual",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Natural gas production at the **Miskar** field in **2024** was **317 ktep** on a **PCI** (lower heating value) basis, in **annual** terms (full year 2024-01-01 to 2024-12-31).\n\nQualifiers and caveats:\n- **Basis:** PCI (lower heating value) — do not blend with PCS figures.\n- **Period:** annual (full year).\n- **Scope:** commercial_dry (accounted dry commercial natural gas / gaz sec) — not the broader primary measure.\n- **Status:** ⚠️ This is a **provisional** figure (data_status = provisional), sourced from Memento 2024 (M-T6). It is not yet final.",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_calorific_basis_named": true,
+            "qualifier_period_type_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "natural gas production Miskar field PCI annual"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Natural gas production at the **Miskar field in 2024** was **317 ktep (PCI basis), annual**.\n\nQualifiers:\n- **Basis:** PCI (lower heating value) — not interchangeable with PCS\n- **Period:** annual (full year 2024, Jan–Dec)\n- **Scope:** commercial_dry (accounted dry commercial natural gas / gaz sec)\n- **Unit:** ktep-pci\n\n⚠️ Note: this figure is flagged **provisional** (data_status=provisional, sourced from Memento 2024) — it is not yet a final figure.",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T02",
+      "category": "pci_pcs_conflation",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true,
+            "used_compare": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "compare"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Miskar natural gas production PCI PCS",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "compare",
+              "args": {
+                "series_ids": [
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||"
+                ],
+                "ref_year": 2024
+              },
+              "status": "refused_incompatible"
+            }
+          ],
+          "final_text": "## Miskar natural-gas production, 2024 — PCI vs PCS\n\n| Basis | Value | Unit | Period | Scope |\n|-------|-------|------|--------|-------|\n| **PCI** (lower heating value) | **317** | ktep-pci | annual (2024 calendar year) | commercial_dry |\n| **PCS** (higher heating value) | **353** | ktep-pcs | annual (2024 calendar year) | commercial_dry |\n\nBoth figures are **provisional** (data_status = provisional), from the 2024 Memento (PCI from table M-T6, PCS from M-T5), for the Miskar field, commercial dry gas (gaz sec), full calendar year 2024.\n\n### Are they directly comparable? No.\n\nThese are **twins on different calorific bases** and the `compare` tool **refused** them as a category error (incompatible on `calorific_basis` and `unit`). You must not equate or blend PCI with PCS.\n\n- **PCI** = *pouv",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true,
+            "used_compare": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "compare"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Miskar natural gas production PCI PCS"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "compare",
+              "args": {
+                "series_ids": [
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||"
+                ],
+                "ref_year": 2024
+              },
+              "status": "refused_incompatible"
+            }
+          ],
+          "final_text": "**No — these are not directly comparable.** The `compare` tool refused the pairing as a category error, because the two series differ on calorific basis (PCI vs PCS) and unit (ktep-pci vs ktep-pcs).\n\nThe 2024 figures for Miskar natural-gas production (primary production, commercial-dry scope, annual, **provisional**, Memento 2024):\n\n| Basis | Value | Unit |\n|-------|-------|------|\n| **PCI** (lower heating value) | **317** | ktep-pci |\n| **PCS** (higher heating value) | **353** | ktep-pcs |\n\nWhy they can't be compared head-to-head:\n- **PCI vs PCS are twins that must never be blended.** They measure the *same physical gas* but reference different heating-value conventions: ktep-pcs = ktep-pci ÷ 0.9 (equivalently 1 PCI = 0.9 PCS). The 317 → 353 gap is purely this basis convention (317 / 0.9 ",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true,
+            "used_compare": true
+          },
+          "tools_used": [
+            "search_series",
+            "compare",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Miskar natural gas production PCI PCS"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "compare",
+              "args": {
+                "series_ids": [
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||"
+                ],
+                "ref_year": 2024
+              },
+              "status": "refused_incompatible"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Miskar natural-gas production, 2024\n\n| Basis | Value | Unit | Period | Scope |\n|---|---|---|---|---|\n| **PCI** (lower heating value) | **317** | ktep-pci | annual (2024-01-01 → 12-31) | commercial_dry |\n| **PCS** (higher heating value) | **353** | ktep-pcs | annual (2024-01-01 → 12-31) | commercial_dry |\n\nBoth are commercial dry gas (*production nationale commerciale*), annual, primary production for the Miskar field, sourced from Memento 2024. ⚠️ Both figures are flagged **provisional** (not final).\n\n### Are they directly comparable? No.\n\nThe `compare` tool **refused** the comparison — the two series differ on `calorific_basis` (PCI vs PCS) and `unit` (ktep-pci vs ktep-pcs). Per the scope glossary, **PCI must never be blended or equated with PCS**; doing so is a category error.\n\nThese ",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true,
+            "used_compare": true
+          },
+          "tools_used": [
+            "search_series",
+            "compare",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Miskar natural gas production PCI PCS"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "compare",
+              "args": {
+                "series_ids": [
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||"
+                ],
+                "ref_year": 2024
+              },
+              "status": "refused_incompatible"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**No — these are not directly comparable.** The `compare` tool refused the pair as a category error because they differ on calorific basis and unit (PCI vs PCS).\n\n**The two 2024 figures (Miskar field, commercial dry gas, annual, both provisional):**\n\n| Basis | Value | Unit | Source |\n|-------|-------|------|--------|\n| PCI (lower heating value) | **317 ktep-pci** | ktep-pci | Memento 2024, M-T6 |\n| PCS (higher heating value) | **353 ktep-pcs** | ktep-pcs | Memento 2024, M-T5 |\n\n**Why they aren't comparable:**\nThese are not two independent measurements of \"more vs less\" production — they are the *same physical gas* expressed on two different calorific conventions. PCI (pouvoir calorifique inférieur) excludes the latent heat of water vapour; PCS (pouvoir calorifique supérieur) includes it. B",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true,
+            "used_compare": true
+          },
+          "tools_used": [
+            "search_series",
+            "compare",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Miskar natural gas production PCI PCS"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "compare",
+              "args": {
+                "series_ids": [
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                  "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||"
+                ],
+                "ref_year": 2024
+              },
+              "status": "refused_incompatible"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Miskar natural-gas production, 2024 — PCI vs PCS\n\n| Basis | Value | Period | Scope |\n|-------|-------|--------|-------|\n| **PCI** (lower heating value) | **317 ktep-pci** | annual (full-year 2024) | commercial dry gas |\n| **PCS** (higher heating value) | **353 ktep-pcs** | annual (full-year 2024) | commercial dry gas |\n\nBoth are full-year **annual** figures, **commercial_dry** scope (accounted dry commercial gas), sourced from Memento 2024 (PCI: M-T6; PCS: M-T5). **Both are flagged provisional** — not final figures.\n\n### Are they directly comparable? No.\n\nThe `compare` tool **refused** this pairing as a category error: the two series differ on `calorific_basis` (PCI vs PCS) and `unit` (ktep-pci vs ktep-pcs). PCI and PCS must **never be blended or equated** — they measure the same physic",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T03",
+      "category": "scope_confusion",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_geography_scope_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "list_series",
+            "search_series",
+            "describe_series",
+            "get_observation",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity sales local market excluding exports"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "electricity_sales"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales grand total local geography annual 2024",
+                "limit": 20
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||incl_exports"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.mt||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.ht||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Total local-market electricity sales, Tunisia 2024\n\n**≈ 17,089 GWh** (annual; local domestic market, **excluding exports**).\n\nThere is no pre-computed local grand-total series in the catalogue — the only `grand_total` carries `geo=incl_exports` (which mixes in Libya exports, ≈17,197 GWh, and must **not** be used for a local figure). So I summed the three local leaf series by voltage level:\n\n| Voltage level | 2024 (GWh, local) |\n|---|---|\n| Basse Tension (BT, low voltage) | 8,839 |\n| Moyenne Tension (MT, medium voltage) | 7,082 |\n| Haute Tension (HT, high voltage) | 1,168 |\n| **Total local** | **17,089** |\n\nQualifiers and caveats:\n- **Period type:** annual (full calendar year 2024-01-01 → 12-31).\n- **Geography/scope:** `local` = domestic market (HT+MT+BT); explicitly excludes Libya expor",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_geography_scope_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "list_series",
+            "search_series",
+            "describe_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity sales local market not including exports",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "electricity_sales",
+                "limit": 20
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales total local grand total",
+                "limit": 5
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.mt||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.ht||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Total electricity sales in Tunisia in 2024 (local/domestic market, excluding exports): 17,089 GWh** — annual period, geography scope = `local` (HT + MT + BT to the domestic market).\n\nA few caveats worth noting:\n- **Provisional**: this 2024 figure is flagged as provisional (not yet final), per the *Mémento 2024* (source M-T18, p.14).\n- **Derived total**: the grand total was computed by the loader from its three voltage leaves, which match it: Basse Tension 8,839 + Moyenne Tension 7,082 + Haute Tension 1,168 = 17,089 GWh.\n- This is the **local-market** figure as you requested. There is a separate, distinct `incl_exports` series for electricity sales — do not equate or sum the two, as they are scope twins.\n\nThere is no PCI/PCS basis on this series (electricity sales are reported directly in",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_geography_scope_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "list_series",
+            "search_series",
+            "describe_series",
+            "get_observation",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales total local market excluding exports"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "electricity_sales"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales grand total local geography all levels annual",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||incl_exports"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.mt||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.ht||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Total electricity sales in Tunisia, 2024 — local market (excluding exports)\n\nThere is no separately-stored local grand_total, so I summed the three voltage-level leaves (all `geo=local`, annual, GWh):\n\n| Voltage level | 2024 sales (GWh, local) |\n|---|---|\n| Haute Tension (HT) | 1,168 |\n| Moyenne Tension (MT) | 7,082 |\n| Basse Tension (BT) | 8,839 |\n| **Total (local)** | **≈ 17,089 GWh** |\n\nThis matches the glossary's documented local total of **≈17,090 GWh** for 2024.\n\n**Qualifiers:**\n- **Scope/geography:** `local` — domestic market only (HT+MT+BT), **excluding** the Libya exports, exactly as you requested.\n- **Period type:** annual (full calendar year 2024-01-01 to 2024-12-31).\n- **Unit:** GWh (electricity, so no PCI/PCS basis applies).\n- **Source:** Mémento ONEM 2024 (table M-T18, p.1",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_geography_scope_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "list_series",
+            "describe_series",
+            "get_scope_glossary",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity sales local market excluding exports"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "electricity_sales"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_scope_glossary",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Total local-market electricity sales in Tunisia in 2024: 17,089 GWh** (annual, domestic market = HT + MT + BT, excluding Libya exports).\n\nImportant qualifiers:\n- **Geography scope:** `local` — domestic market only; this **excludes** the Libya export sliver (≈108 GWh). The export-inclusive figure (`incl_exports`) is ≈17,197 GWh — don't conflate the two.\n- **Period type:** annual (full year 2024).\n- **Unit/basis:** GWh; no calorific basis applies (electricity).\n- **Aggregation role:** grand_total — this is the HT+MT+BT total, so don't add it back to its voltage-level components.\n\nTwo caveats from the source:\n- The value is **provisional** (data_status = provisional), not yet final.\n- It is **derived** — the loader computed this total because the Memento 2024 table (M-T18, p.14) didn't prin",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "no_twin_conflation": true,
+            "qualifier_geography_scope_named": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity sales local market excluding exports",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales local geography annual ventes électricité local",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "electricity_sales",
+                "limit": 30
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Total electricity sales in Tunisia, 2024 (local market, excluding exports): ≈ 17,089 GWh.**\n\nQualifiers and caveats:\n- **Scope/geography:** `local` — domestic-market sales only (sum of high + medium + low voltage, HT+MT+BT), explicitly excluding exports. Per the glossary, this must never be combined with `incl_exports` or `exports_only` figures.\n- **Period type:** annual (full-year 2024, Jan 1–Dec 31).\n- **Unit/basis:** GWh; calorific basis not applicable (electricity, NA).\n- **Aggregation role:** grand_total for the local family.\n- ⚠️ **Provisional:** this is flagged `provisional` (not a final figure).\n- ⚠️ **Derived:** the value was computed by the loader (summed from the HT/MT/BT leaves; the source table did not print the local total directly). Source: Memento 2024, p.14, ref M-T18.\n\n",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T04",
+      "category": "double_count",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "used_grand_total": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity production Tunisia",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_production|flow.primary_production|||||||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Total electricity production in Tunisia in 2024 was **19,208 GWh** (annual figure, grand_total — i.e. the published total, not a sum you compute).\n\nImportant qualifiers:\n- **Period type:** annual (full-year, 1 Jan–31 Dec 2024)\n- **Unit:** GWh (calorific basis not applicable for electricity)\n- **Aggregation role:** grand_total (the official published total across all producers)\n- **Status:** ⚠️ **Provisional** — this is not yet a final figure (source: Memento 2024, page 9). Treat it as preliminary.",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "used_grand_total": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity production Tunisia",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_production|flow.primary_production|||||||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Total electricity production in Tunisia in 2024: 19,208 GWh** (annual, grand_total / all producers).\n\nKey qualifiers and caveats:\n- **Period type:** annual (full year, Jan–Dec 2024) — not a year-to-date cumulative figure.\n- **Basis:** electricity is measured in GWh, so no PCI/PCS calorific basis applies (basis = NA).\n- **Scope:** all-producer grand total (this is the published TOTAL row, not just STEG, so no summing on your part is needed).\n- **⚠️ Data status: provisional** — sourced from the Memento 2024 (source ref M-T12, p.9), not yet a final figure.",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "used_grand_total": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity production Tunisia"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_production|flow.primary_production|||||||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Total electricity production in Tunisia in 2024: 19,208 GWh** (annual, grand total).\n\nQualifiers:\n- **Period:** annual (full year 2024-01-01 → 2024-12-31), not year-to-date\n- **Unit:** GWh — no PCI/PCS basis applies (electricity is measured in GWh, basis = NA)\n- **Scope:** national grand total (all producers — this is the published TOTAL row, not a component you have to sum)\n- **Status:** ⚠️ **provisional** — flagged as not yet a final figure (source: Memento 2024, table M-T12, row TOTAL)\n\nThis is the single published total, taken directly from the grand_total series rather than computed from components.",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "used_grand_total": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity production grand total",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_production|flow.primary_production|||||||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Total electricity production in Tunisia in 2024: 19,208 GWh** — this is the grand total (national, all producers combined).\n\nQualifiers:\n- **Period type:** annual (full calendar year, 2024-01-01 to 2024-12-31)\n- **Unit:** GWh (electricity, so no PCI/PCS calorific basis applies)\n- **Scope:** national grand total (all producers, not just STEG)\n- **⚠️ Data status: provisional** — this is not yet a final figure (source: memento_2024, p.9).\n\nThis is the single published total, not a sum of components.",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "correct_value_reported": true,
+            "used_grand_total": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "total electricity production Tunisia"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_production|flow.primary_production|||||||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Total electricity production in Tunisia in 2024: 19,208 GWh.**\n\nQualifiers:\n- **Aggregation:** grand_total (this is the single published total — not a sum you compute)\n- **Period type:** annual (full calendar year, Jan–Dec 2024)\n- **Unit:** GWh (electricity in GWh; no PCI/PCS basis applies — calorific basis is N/A for electricity)\n- **Scope/geography:** national, all producers (no producer/scope restriction)\n- **⚠️ Data status: provisional** — sourced from the Memento 2024 (M-T12, p.9); not yet a final figure.",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T05",
+      "category": "double_count",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true
+          },
+          "tools_used": [
+            "search_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales by voltage BT MT HT total"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "I cannot do what you asked, and here's why.\n\nThe three voltage series (BT, MT, HT) are **leaves** of a partition, and the 17089 figure is their **grand_total**. Rule 3 is explicit: to total a partition you either read the grand_total **or** sum the leaves — but you must **never sum a total with its own components**. Adding BT + MT + HT + total would double-count everything and produce a meaningless ~34,178 GWh.\n\nThe correct relationship is:\n\n- **BT + MT + HT = 8839 + 7082 + 1168 = 17,089 GWh** — which equals the listed total. ✓\n\nSo the grand total of electricity sales by voltage in 2024 is **17,089 GWh** (sum of the three voltage leaves, which matches the published grand_total). These are **annual** figures on the voltage-level partition; the values you supplied carry the `GWh` unit with `",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "list_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales by voltage level BT MT HT",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.mt||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.ht||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "electricity_sales",
+                "limit": 40
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "I won't perform the addition you asked for, because it would be statistically invalid. Here's why, plus the corrected picture.\n\n**Two problems with the request:**\n\n1. **You cannot add components *to* their own total.** The voltage levels (BT, MT, HT) are the **leaves** of a partition; the listed 17089 is the **grand total** of that same partition. Adding the three leaves to the total double-counts — that operation has no meaning. You either *read the grand total* or *sum the leaves*, never both together.\n\n2. **The numbers you quoted don't match the catalog.** The actual provisional 2024 annual figures (GWh, basis NA — electricity sales carry no PCI/PCS basis) are:\n\n| Voltage | Your figure | Catalog (annual, provisional) |\n|---|---|---|\n| Basse Tension (BT) | 8839 | **8839** ✓ |\n| Moyenne T",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales by voltage level BT MT HT"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales total all voltages grand total annual"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.mt||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.ht||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "I can't do what you asked, and I should flag two things.\n\n**The operation is invalid.** BT, MT, and HT are the *leaf components* of the electricity-sales-by-voltage partition, and 17089 is their *total*. Per partition rules, you total a partition by **summing the leaves OR reading the grand_total — never by adding the leaves to the total.** Adding the three voltages to the total would double-count and produce a meaningless number.\n\n**Your input figures are also slightly off.** The store's 2024 annual values (GWh) differ from what you quoted:\n\n| Voltage | Your figure | Store (GWh, annual) |\n|---|---|---|\n| BT (Basse Tension) | 8839 | 8839 ✓ |\n| MT (Moyenne Tension) | 7082 | **7084** |\n| HT (Haute Tension) | 1168 | **1165** |\n\nAll three are **GWh, annual (full-year 2024), period 2024-01-01→1",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true
+          },
+          "tools_used": [
+            "search_series",
+            "list_series",
+            "get_observation",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales by voltage BT MT HT"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "electricity_sales"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.mt||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.ht||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "I won't perform that calculation — it's structurally wrong, and the premise also has wrong numbers. Two problems:\n\n**1. You must never add components to their own total.** BT + MT + HT *is* the total. The grand total is the sum of the three leaves, not the three leaves plus another \"total\" — doing that double-counts the entire partition.\n\n**2. Your figures don't match the catalog.** The annual (calendar-year 2024) leaf values, all in GWh, calorific basis NA (voltage levels carry no PCI/PCS), and **flagged provisional** (`conjoncture_2025_01`, table C-T21), are:\n\n| Voltage | Your figure | Catalog (annual, GWh, provisional) |\n|---|---|---|\n| BT (Basse Tension) | 8839 | 8839 ✓ |\n| MT (Moyenne Tension) | 7082 | **7084** |\n| HT (Haute Tension) | 1168 | **1165** |\n\n**The grand total is the sum o",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "guard_or_decline": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "list_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales by voltage BT MT HT"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "electricity sales total all voltages grand total annual"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.mt||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "electricity_sales|flow.sales|||||lvl.ht||NA|GWh|annual|||||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "electricity_sales"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "I won't do that addition — it's an invalid operation, and separately your input numbers don't match the catalog. Here's the situation.\n\n**Why I can't \"add the three voltages to the total\":**\n\nThe three voltage series (BT, MT, HT) are **leaves** of a partition, and 17089 is their **total**. Adding components *to* their own total double-counts — it's the exact \"never sum a total with its own components\" rule. The correct grand total of the partition is just the total itself (or, equivalently, the sum of the three leaves) — not total + leaves.\n\n**Your numbers also differ from the catalog.** The catalog 2024 annual sales by voltage (basis NA — electricity in GWh, period_type = annual, geography = national, all flagged **provisional**, source: conjoncture_2025_01, table C-T21) are:\n\n| Voltage |",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T06",
+      "category": "no_data_vs_out_of_scope",
+      "runs": 5,
+      "mean_pass": 0.8,
+      "variance": 0.16,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Brent crude oil price"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "international oil price quotation USD per barrel"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "price"
+              },
+              "status": "out_of_scope"
+            }
+          ],
+          "final_text": "I checked the ONEM catalog directly. Here's what I found:\n\n**Brent crude price is out of scope — not ingested in this dataset.**\n\nThe indicator **\"Prix du baril Brent\"** (Brent barrel price) is a *defined* indicator in the ONEM catalog, but it has **no ingested series**. Prices are among the families that have been consciously deferred (along with trade values, refining/exploration KPIs, renewable capacity, etc.).\n\nSo I cannot give you a 2024 Brent price figure from this store. To be clear, this does **not** mean the data doesn't exist in the world — it simply hasn't been ingested into the onem-energy store (see coverage_gaps.md for which editions/tables were deferred and why).\n\nWhat the catalog *does* hold for crude oil is physical-balance data, not prices — e.g. Tunisian **crude oil prod",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Brent crude oil price"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Brent price USD per barrel international oil price quotation"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "limit": 100
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "The ONEM catalog I can access contains **physical energy quantities** — production, consumption, purchases, and energy balances (measured in kt, ktep, ktep-pci/pcs) — but **no price series**. There is no Brent crude price indicator (no USD/barrel quotation, no oil price family) in this store.\n\nSo I can't give you a Brent price for 2024, but **not because the data doesn't exist in the world** — it's simply **out of scope / not ingested** in this onem-energy dataset. The catalog covers crude oil *volumes* (e.g., production by field in kt, and the primary energy balance in ktep-pci), not market price benchmarks like Brent.\n\nIf what you actually need is a related figure that *is* in scope — for example Tunisian crude oil **production** in 2024 (in kt, by field) or crude oil in the **primary en",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_units",
+            "search_series",
+            "list_series",
+            "search_series",
+            "list_series",
+            "list_series",
+            "get_metadata"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Brent crude oil price"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil price quotation USD per barrel Brent international market"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_units",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "cours du baril Brent prix hypothèse $/baril dollar par baril",
+                "limit": 20
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "limit": 100
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "hypothèse prix Brent baril budget loi de finances assumption oil price",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "brent"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "macro_assumptions"
+              },
+              "status": "empty_in_scope"
+            },
+            {
+              "tool": "get_metadata",
+              "args": {},
+              "status": "error"
+            }
+          ],
+          "final_text": "I found the answer.\n\n**The Brent crude price is not available in the ONEM data.** There is a defined indicator — *\"Prix du baril Brent\"* (a `price`-category series, in `$/baril`) — but it has **no ingested series**: it is **out of scope / not ingested**, which the catalog explicitly distinguishes from \"no data exists.\"\n\nPrice families (along with trade values/quantities, refining and exploration KPIs, petroleum-product imports/production, renewable capacity, peak power, the electricity supply balance, specific consumption, and gas sales) have been **consciously deferred** in this edition. So I can't give you a 2024 Brent figure from ONEM — not because the figure doesn't exist in the world, but because that series hasn't been loaded into this store. The reasons and the specific source editi",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": false,
+          "checks": {
+            "stated_out_of_scope": false
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Brent crude oil price"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Brent price index quotation USD per barrel oil price"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {},
+              "status": "ok"
+            }
+          ],
+          "final_text": "I'm not finding any **price** indicator. The ONEM catalog here is built around physical-quantity and energy-balance indicators — production, consumption, purchases, energy balances — expressed in units like **kt** (thousand tonnes), **ktep-pci/ktep-pcs** (kilotonnes of oil equivalent on a PCI or PCS calorific basis), not monetary prices in USD/barrel. There is no Brent price-quotation series among the matches.\n\n**No Brent crude price series is in scope of this ONEM store.** The data covers Tunisian energy *volumes* and *balances* (e.g., crude oil production by field in kt, primary energy balance in ktep), not international price benchmarks like Brent. So I can't give you a 2024 Brent price figure from this source — it isn't a price catalog.\n\nIf what you actually want is a 2024 figure for T",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Brent crude oil price"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Brent oil price quotation USD per barrel market price"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {},
+              "status": "ok"
+            }
+          ],
+          "final_text": "The ONEM catalog I have access to does not contain a Brent crude **price** series. The crude-oil-related series in this store are all **physical-quantity / energy-balance** indicators, not price quotations:\n\n- **Production de pétrole brut** (crude oil production by field, in kt)\n- **Bilan d'énergie primaire — Pétrole brut** (primary energy balance for crude, in ktep)\n- Petroleum-product consumption, gas purchases, etc.\n\nAll of these are measured in physical/energy units (kt, ktep-pci, ktep-pcs) — there is no $/barrel price indicator, and no Brent benchmark, in the ingested data.\n\n**So I can't give you a Brent price for 2024 — that price family is not in scope of the onem-energy store** (it tracks Tunisian production, consumption, and energy balances, not international crude price benchmark",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T07",
+      "category": "no_data_vs_out_of_scope",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series",
+            "search_series",
+            "get_metadata",
+            "list_series",
+            "list_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR refinery petroleum refining KPIs throughput yield"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR Bizerte refinery KPI crude processed capacity utilization"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "refinery"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "raffinage taux d'utilisation rendement raffinerie pétrole brut traité KPI"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_metadata",
+              "args": {},
+              "status": "error"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "refining"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "stir"
+              },
+              "status": "out_of_scope"
+            }
+          ],
+          "final_text": "**Refining KPIs for STIR are out of scope — not ingested into this store.**\n\nThe indicator **\"Indicateurs de raffinage\" (`refining_kpi`, category: production)** is a *defined* indicator in the ONEM catalog, but it has **no ingested series**. This is a conscious coverage deferral, not an absence of data — the refining KPIs (along with prices, trade values, exploration KPIs, petroleum-product imports/production, renewable capacity, peak power, etc.) are listed as deliberately deferred families. So I can't give you STIR refinery throughput / utilization / yield figures from this store.\n\nWhat *is* available and adjacent, if useful:\n- **Production de pétrole brut** (`crude_production`) — crude oil output by field (Adam, El Borma, M.L.D, Ashtart, Hasdrubal, …), in **kt**, on a **excl_gpl_condens",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series",
+            "list_series",
+            "search_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR refinery petroleum refining KPIs throughput yield",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR raffinerie Bizerte refining throughput capacity utilization crude processed",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "limit": 50
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "refining_kpi"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR raffinerie indicateurs de performance taux d'utilisation rendement raffinage",
+                "limit": 5
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Refining KPIs for the STIR refinery are out of scope — not ingested in this store.**\n\nThe indicator **\"Indicateurs de raffinage\" (refining KPIs, `refining_kpi`, category: production) is a defined indicator but has no ingested series**. It has been consciously deferred (per `coverage_gaps.md`), along with prices, trade value/quantity, exploration KPIs, petroleum-product imports/production, renewable capacity, peak power, the electricity supply balance, specific consumption, and gas sales.\n\nSo I cannot show STIR-specific refinery throughput, capacity utilization, or yield KPIs from this store. To be clear: **this is a coverage gap, not an indication that the data doesn't exist.**\n\nWhat *is* available that touches the refining process (but is **not** a refinery-level KPI, and carries differ",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series",
+            "search_series",
+            "get_metadata"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR refinery petroleum refining KPIs throughput yield"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR Bizerte refinery KPI utilization rate crude processed"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "refinery"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "raffinerie STIR taux d'utilisation capacité distillation rendement KPI exploitation",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_metadata",
+              "args": {},
+              "status": "error"
+            }
+          ],
+          "final_text": "I have enough to answer. Here's what the catalog contains and doesn't contain:\n\n## Facility-level STIR refinery KPIs are not in scope\n\nI searched the ONEM catalog several ways (STIR/Bizerte, refinery throughput, utilization rate, distillation yield, taux d'utilisation/rendement). **The store does not carry any facility-level \"refinery operations KPI\" series for the STIR refinery** — there is no series keyed to a refinery as an *establishment*, and there are no operational KPI indicators (capacity utilization, crude run/throughput, distillation yield, on-stream factor, etc.).\n\nWhat the catalog *does* contain on this topic is **product- and balance-level statistics**, not refinery-plant KPIs:\n\n- **`prod.refinery_gas` (\"Gaz de raffinage\")** — a *product*, appearing across:\n  - **Consommation ",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series",
+            "search_series",
+            "get_metadata"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR refinery petroleum refining KPIs throughput yield",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR raffinerie Bizerte activité raffinage KPI indicateurs",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "refinery",
+                "limit": 30
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "refinery throughput crude processed distillation capacity utilization yield STIR",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_metadata",
+              "args": {},
+              "status": "error"
+            }
+          ],
+          "final_text": "Across multiple searches, the catalog has no STIR refinery KPI / activity dashboard. Everything returned is either:\n- **\"Refinery gas\" (gaz de raffinage)** — a *petroleum product* tracked in consumption and energy-balance series, not a plant KPI; or\n- **Energy-balance transformation flows** — system-wide, not refinery-specific operating metrics.\n\nThere is **no refinery operations indicator** — no crude throughput, distillation capacity, capacity-utilization rate, product yield, or any STIR/Bizerte plant-level series — catalogued in this store. The ONEM-energy data here is organized by product and by energy-balance flow, not by individual industrial facility.\n\n**So, on STIR refinery petroleum-refining KPIs specifically:** that family is **not in scope / not ingested** in this catalog — I ca",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "stated_out_of_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "list_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR refinery petroleum refining KPIs throughput yield",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "STIR Bizerte refinery crude processed refining indicators",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "raffinage",
+                "limit": 20
+              },
+              "status": "out_of_scope"
+            }
+          ],
+          "final_text": "I have a definitive answer.\n\n**Petroleum refining KPIs (STIR refinery) are out of scope / not ingested in this store.**\n\nThe indicator **\"Indicateurs de raffinage\" (refining KPIs, production category)** is a *defined* indicator in the ONEM catalog, but it has **no ingested series**. This is a deliberate coverage gap — not an indication that the data doesn't exist. Refining KPIs (along with prices, trade values, exploration KPIs, petroleum-product imports/production, renewable capacity, peak power, etc.) are consciously deferred. The exact editions/tables and rationale are documented in `coverage_gaps.md`.\n\nSo I can't give you STIR-specific refining performance indicators (e.g., crude throughput, processing yields, utilization) from this dataset.\n\n**What *is* available and adjacent**, if us",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T08",
+      "category": "period_type_mixing",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "named_period_type": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_series",
+            "get_series",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil consumption year-to-date annual",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|annual|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|annual|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Gasoil consumption: year-to-date vs annual\n\n**Year-to-date (latest cutoff):** **657 ktep** — gasoil (Gasoil total, leaf), cumulative consumption **January–April 2026** (ytd_cutoff_month = 4). Basis NA (volume-based consumption series, no PCI/PCS), period_type = ytd_cumulative. ⚠️ Flagged **provisional**.\n\n**No, it is not the same as the annual figure** — and the two should not be equated:\n\n- These are **twins on the period_type dimension** (`ytd_cumulative` vs `annual`) and must never be conflated. The 657 ktep figure covers only the first 4 months of 2026; an annual figure covers a full calendar year.\n- There is **no 2026 annual value yet** (the YTD year is still in progress). The latest available **annual** figure is **2,090 ktep for full-year 2025** (period 2025-01-01 → 2025-12-31, b",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "named_period_type": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_series",
+            "search_series",
+            "list_series",
+            "get_observation",
+            "describe_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil consumption year-to-date cumulative",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil consumption annual petroleum products",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "pp_consumption",
+                "limit": 100
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "The latest cutoff for the ytd gasoil series is **April 2026** (cutoff month 4). Now I should check whether an annual gasoil aggregate exists to compare. The annual family only listed grades as subtotals. Let me verify there's no annual \"gasoil\" leaf — but importantly, ytd-as-of-April is NOT comparable to a full-year annual figure regardless. Let me confirm what annual figure is even available (latest annual = 2025).\n\nThe key answer is clear from the qualifiers. Let me give the answer.\n\n## Answer\n\n**Year-to-date gasoil consumption, latest cutoff:** **657 ktep** (ktep, calorific basis = NA), `period_type = ytd_cumulative`, cutoff = **end of April 2026** (period 2026-01-01 → 2026-04-30). This is the \"Gasoil\" leaf (the aggregate of all gasoil grades) from the conjoncture report C-T14. Note: it",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "named_period_type": true
+          },
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "get_series",
+            "get_series",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil consumption year-to-date and annual"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil diesel consumption product demand"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|annual|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|annual|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Gasoil consumption — latest figures\n\n**Year-to-date (latest cutoff):** **657 ktep**, covering January–April 2026 (ytd_cutoff_month = 4). \n- Series: *Consommation de produits pétroliers — Gasoil*, period_type = **ytd_cumulative**, unit ktep, calorific_basis = NA (not PCI/PCS-flagged for this product). Flagged **provisional**.\n\n**No, these are not the same figure — and they must not be conflated.** These are distinct period-type twins:\n\n- The **YTD figure (657 ktep)** is a *cumulative partial-year* total covering only Jan–Apr 2026 (4 months).\n- The **latest full annual figure** is **2,090 ktep** for **calendar year 2025** (period_type = annual, also provisional).\n\nSo:\n- They cover **different periods** (4 months of 2026 vs. all 12 months of 2025).\n- A year-to-date cumulative is only equal",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "named_period_type": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_series",
+            "search_series",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil consumption year-to-date cumulative",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil consumption annual produits petroliers",
+                "limit": 5
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|annual|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Gasoil consumption — year-to-date vs annual\n\n**Year-to-date (latest cutoff):** The most recent ytd_cumulative cutoff is **April 2026** (period 2026-01-01 → 2026-04-30, ytd_cutoff_month = 4), at **657 ktep**. *(Caloric basis = NA; geography/scope = national/unspecified; data_status = provisional.)*\n\n**Is this the same as the annual figure? No — these are distinct twins and must not be conflated:**\n\n- The YTD value (657 ktep) is a **cumulative running total through April only**, not a full-year number.\n- The latest **annual** gasoil consumption figure is for **ref_year 2025: 2,090 ktep** (period 2025-01-01 → 2025-12-31, full calendar year, also provisional). *(There is no completed annual 2026 figure — 2026 is still accumulating month-by-month.)*\n\nSo the YTD-April-2026 figure (657 ktep) c",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "named_period_type": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_series",
+            "describe_series",
+            "search_series",
+            "list_series",
+            "get_observation",
+            "get_series"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil consumption year-to-date"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gasoil consumption annual petroleum products"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "pp_consumption",
+                "limit": 50
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.gasoil||||||NA|ktep|annual|||||"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "I have what I need. The latest ytd cutoff for 2026 is April (cutoff_month=4).\n\n## Gasoil consumption — year-to-date as of latest cutoff\n\n**657 ktep**, on a **year-to-date cumulative** basis covering **Jan 1 – Apr 30, 2026** (ytd_cutoff_month = 4), for **gasoil** (the all-grades leaf, product=`prod.gasoil`), unit **ktep**, calorific basis **NA** (not PCI/PCS-distinguished for this petroleum-products series). Source: Conjoncture C-T14, `conjoncture_2026_04`. This figure is **provisional** (\"Données provisoires\"), as all conjoncture ytd values are.\n\n## Is that the same as the annual figure?\n\n**No** — and they must not be equated. They are an annual vs ytd_cumulative twin:\n\n- The **657 ktep** is a **partial-year accumulation** (only the first 4 months of 2026).\n- The **annual** gasoil consumpt",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T09",
+      "category": "contested_as_settled",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "used_get_conflicts": true,
+            "conflicts_surfaced": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "petroleum products consumption",
+                "limit": 5
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|annual|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Yes — ONEM editions disagree on petroleum-products consumption. Here's a clean, documented example.\n\n**Series:** Consommation de produits pétroliers — Total Produits Pétroliers\n**Qualifiers:** unit = ktep; calorific_basis = NA (not PCI/PCS); period_type = **annual**; scope = national grand_total (Total Produits Pétroliers).\n\n**Contested cell — ref_year 2019 (annual):**\n\n| Edition | Value (ktep) |\n|---|---|\n| conjoncture_2020_01 ← **precedence winner** | **4,464** |\n| conjoncture_2020_02 / 2020_04 | 4,476 |\n| conjoncture_2020_05 → 2020_11 | 4,494 |\n| conjoncture_2020_12 | 4,577 |\n\nThe disagreement exceeds tolerance (`disagreement>tol`). Successive 2020 conjoncture editions progressively revised the 2019 annual figure **upward** from 4,464 to 4,577 ktep (a ~113 ktep / ~2.5% spread).\n\n**Resol",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "used_get_conflicts": true,
+            "conflicts_surfaced": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "petroleum products consumption",
+                "limit": 5
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|annual|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Yes — ONEM editions do disagree on petroleum-products consumption. Here is a clear, well-documented contested value:\n\n## Contested cell: Total petroleum products consumption, ref_year 2019\n\n**Series:** `pp_consumption` — Total Produits Pétroliers (Total petroleum products)\n**Qualifiers:** unit = **ktep**, calorific_basis = **NA** (not PCI/PCS-tagged for this conjoncture series), period_type = **annual**, scope = national/total (grand_total role).\n\nFive different *Conjoncture énergétique* editions reported different annual figures for 2019:\n\n| Edition | Value (ktep, annual) |\n|---|---|\n| conjoncture_2020_01 | **4464** ← precedence winner |\n| conjoncture_2020_02 | 4476 |\n| conjoncture_2020_04 | 4476 |\n| conjoncture_2020_05–2020_11 | 4494 |\n| conjoncture_2020_12 | 4577 |\n\n**Resolution:** the ",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "used_get_conflicts": true,
+            "conflicts_surfaced": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "petroleum products consumption",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|annual|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Yes — ONEM editions do disagree on petroleum-products consumption figures. Here is a clear contested value:\n\n## Contested value: Total petroleum products consumption, 2019 (annual)\n\n**Series:** Consommation de produits pétroliers — *Total Produits Pétroliers*\n**Qualifiers:** unit = ktep; calorific_basis = NA (this conjoncture family is not stated on a PCI/PCS basis); period_type = **annual**; flow = consumption; aggregation role = grand_total; family = conjoncture.\n\nSuccessive 2020 conjoncture editions reported different annual totals for **ref_year 2019**:\n\n| Edition | Value (ktep) |\n|---|---|\n| conjoncture_2020_01 | **4464** ← precedence winner |\n| conjoncture_2020_02 / 04 | 4476 |\n| conjoncture_2020_05 → 11 | 4494 |\n| conjoncture_2020_12 | 4577 |\n\nThe spread runs from **4,464 to 4,577 k",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "used_get_conflicts": true,
+            "conflicts_surfaced": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "petroleum products consumption",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|annual|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Yes — ONEM editions do disagree on petroleum-products consumption. Here's a clean, well-documented example.\n\n## Contested value: Total petroleum-products consumption, 2019 (annual)\n\n**Series:** Consommation de produits pétroliers — Total Produits Pétroliers\n**Qualifiers:** unit = ktep, calorific basis = NA (not PCI/PCS-distinguished for this conjoncture aggregate), **period_type = annual**, grand_total role.\n\nEleven successive *conjoncture* editions reported different figures for the **same 2019 annual cell**:\n\n| Edition | Value (ktep) |\n|---|---|\n| conjoncture_2020_01 ← **winner** | **4,464** |\n| conjoncture_2020_02 | 4,476 |\n| conjoncture_2020_04–10 | 4,494 |\n| conjoncture_2020_12 | 4,577 |\n\n- **Disagreement spread:** 4,464 → 4,577 ktep (~113 ktep, well above tolerance — flagged `disagre",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "used_get_conflicts": true,
+            "conflicts_surfaced": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "petroleum products consumption",
+                "limit": 5
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|annual|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "pp_consumption|flow.consumption|prod.petroleum_products_total||||||NA|ktep|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "Yes — ONEM editions do disagree on petroleum-products consumption, and the disagreements are tracked in the reconciliation log.\n\n**Contested value (annual series):**\n\nFor **Total Petroleum Products consumption, ref_year 2019, annual, in ktep (calorific_basis = NA, period_type = annual)**, eleven successive *Conjoncture* editions reported different figures for the same cell:\n\n| Edition | Value (ktep, annual) |\n|---|---|\n| conjoncture_2020_01 | **4464** ← precedence winner |\n| conjoncture_2020_02 | 4476 |\n| conjoncture_2020_04–10 | 4476–4494 |\n| conjoncture_2020_12 | 4577 |\n\nThe spread (4464 → 4577 ktep) exceeds tolerance (`note: disagreement>tol`). The clean view serves **4464 ktep** per the precedence rule (*Bilan > Memento > Conjoncture; final > provisional; later publication wins* — here",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T10",
+      "category": "provisional_as_fact",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "flagged_caveat": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            }
+          ],
+          "final_text": "⚠️ **Important caveat before you publish: both available 2024 values are flagged `provisional` — not final figures.**\n\nHere is what exists for Adam crude oil production, 2024 (annual):\n\n| Scope | Value | Basis / Period / Scope | Source | Status |\n|---|---|---|---|---|\n| **excl. GPL+condensat** (canonical crude only) | **106 kt** | annual, full-year 2024 (Jan–Dec), Adam field; calorific basis N/A | Conjoncture 2025-01 (C-T10) | **provisional** |\n| **incl. GPL+condensat** (crude + primary LPG + Gabès condensate) | **106 kt** | annual, full-year 2024, Adam field; calorific basis N/A | Memento 2024 (M-T2) | **provisional** |\n\nNotes for your report:\n\n1. **Both rows carry a `DATA_STATUS=provisional` warning** — neither is yet a finalized figure. For a *published final figure* I'd recommend again",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "flagged_caveat": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            }
+          ],
+          "final_text": "⚠️ **Important caveat before you publish this as a \"final figure\": both available values for 2024 are flagged `data_status = provisional` — neither is a final figure.**\n\nHere's what the data shows for Adam field crude oil production, **annual 2024**:\n\n| Scope | Value | Period | Source | Status |\n|---|---|---|---|---|\n| **excl. GPL+condensat** (canonical crude only) | **106 kt** | annual (2024-01-01 → 2024-12-31) | Conjoncture 2025-01 (C-T10) | **provisional** |\n| **incl. GPL+condensat** (crude + primary LPG + Gabès condensate) | **106 kt** | annual (2024-01-01 → 2024-12-31) | Memento 2024 (M-T2) | **provisional** |\n\nNotes you should be aware of:\n\n- **Unit/basis:** kt; calorific basis is N/A (mass, not energy).\n- **Twin scopes coincided here at 106 kt**, but they are *different definitions*",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "flagged_caveat": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            }
+          ],
+          "final_text": "⚠️ **Important caveat before you publish: both available 2024 figures are flagged `provisional`, not final.**\n\nAdam field, 2024 — crude oil production, annual:\n\n| Scope | Value | Source | Status |\n|---|---|---|---|\n| **excl. GPL+condensat** (canonical \"pure\" crude) | **106 kt** | Conjoncture 2025-01 (C-T10) | provisional |\n| **incl. GPL+condensat** (crude aggregate w/ primary LPG + condensate) | **106 kt** | Memento 2024 (M-T2) | provisional |\n\nKey points for your report:\n\n- **Basis/period:** annual (full calendar year 2024, Jan 1–Dec 31), unit **kt**. Calorific basis is N/A (volumetric/mass for crude, so no PCI/PCS distinction applies here).\n- **Two scope twins exist.** Don't conflate them — `excl_gpl_condensat` is pétrole brut only; `incl_gpl_condensat` adds primary LPG + Gabès condensat",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "flagged_caveat": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            }
+          ],
+          "final_text": "Here is the figure, but with an important caveat for publication.\n\n**Adam field — crude oil production, 2024: 106 kt (annual)**\n\nThere are two distinct annual series for this cell, and both currently read 106 kt for 2024:\n\n| Scope | Value | Source |\n|---|---|---|\n| Crude **excluding** GPL+condensat (canonical pétrole brut) | 106 kt | Conjoncture 2025-01 |\n| Crude **including** primary LPG + Gabès condensate | 106 kt | Memento 2024 (M-T2) |\n\n⚠️ **Both values are flagged `data_status = provisional` — NOT a final figure.** Since you're publishing this as a *final* number, I'd recommend against citing it as final until a Bilan/finalized edition supersedes it.\n\nNotes for the report citation:\n- **Unit / period:** kt, **annual** (calendar year 2024-01-01 → 2024-12-31) — not year-to-date.\n- **Calo",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "flagged_caveat": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_conflicts",
+            "get_conflicts"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||"
+              },
+              "status": "no_conflicts"
+            }
+          ],
+          "final_text": "**Important caveat for your published report: both available 2024 figures are flagged provisional, not final.**\n\nHere is what the catalog holds for crude oil production at the **Adam field, 2024 (annual)**:\n\n| Scope | Value | Source | Status |\n|---|---|---|---|\n| Crude **excl.** GPL+condensat (canonical \"pétrole brut\" only) | **106 kt** | Conjoncture 2025-01 (C-T10) | provisional |\n| Crude **incl.** GPL+condensat (primary LPG + Gabès condensate) | **106 kt** | Memento 2024 (M-T2) | provisional |\n\nQualifiers (must accompany the number):\n- **Unit:** kt; **calorific basis:** NA (not applicable for production tonnage).\n- **Period type:** annual (full calendar year 2024, Jan–Dec) — *not* a year-to-date cumulative.\n- **Geography/scope:** field-level (Adam), Tunisia.\n- **Scope twin:** the two fig",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T11",
+      "category": "unit_basis_conversion",
+      "runs": 5,
+      "mean_pass": 0.8,
+      "variance": 0.16,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "used_convert_units": true,
+            "flagged_caveat": true,
+            "basis_change_flagged": true,
+            "conversion_resolved": true
+          },
+          "tools_used": [
+            "list_units",
+            "convert_units"
+          ],
+          "trajectory": [
+            {
+              "tool": "list_units",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "convert_units",
+              "args": {
+                "from_unit": "ktep-pci",
+                "to_unit": "ktep-pcs",
+                "value": 100
+              },
+              "status": "ok",
+              "live_value": 111.11111111000001,
+              "live_warning": "This conversion CHANGES calorific basis (PCI->PCS; ktep-pci → ktep-pcs). PCI and PCS are DISTINCT bases — the result is on a different basis from the input; do not equate them."
+            }
+          ],
+          "final_text": "**100 ktep-pci → 111.1 ktep-pcs** (gas, natural gas scope).\n\n⚠️ Important caveat on the tool output: the conversion **changes the calorific basis**, which the tool itself flags. There's also an inconsistency in the returned payload worth pointing out:\n\n- The note documents the relationship as **1 PCI = 0.9 PCS**, with the formula **ktep-pcs = ktep-pci / 0.9**.\n- Applying that formula: 100 / 0.9 = **111.1 ktep-pcs**.\n- The tool's `value` field returned **90.0** (i.e. it multiplied by 0.9 rather than dividing per its own stated formula).\n\nSince PCS (higher heating value) is by definition **larger** than PCI (lower heating value) for the same physical quantity of gas, the correct direction is to **divide by 0.9**, giving **≈111.1 ktep-pcs**. The bare 90.0 returned by the tool appears to apply",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "used_convert_units": true,
+            "flagged_caveat": true,
+            "basis_change_flagged": true,
+            "conversion_resolved": true
+          },
+          "tools_used": [
+            "convert_units"
+          ],
+          "trajectory": [
+            {
+              "tool": "convert_units",
+              "args": {
+                "from_unit": "ktep-pci",
+                "to_unit": "ktep-pcs",
+                "value": 100
+              },
+              "status": "ok",
+              "live_value": 111.11111111000001,
+              "live_warning": "This conversion CHANGES calorific basis (PCI->PCS; ktep-pci → ktep-pcs). PCI and PCS are DISTINCT bases — the result is on a different basis from the input; do not equate them."
+            }
+          ],
+          "final_text": "**100 ktep-pci of gas ≈ 111.1 ktep-pcs.**\n\nA note on the calculation: the documented relationship is **1 PCI = 0.9 PCS**, meaning `ktep-pcs = ktep-pci / 0.9`. So 100 / 0.9 = **111.1 ktep-pcs**.\n\n⚠️ Important caveat: this is a **basis change (PCI → PCS)**, not a like-for-like unit conversion. PCI (lower/net calorific value) and PCS (higher/gross calorific value) are **distinct bases** — the resulting figure is on a different basis from your input, so the two values must never be equated or summed together. Always carry the basis label (ktep-pcs) when reporting the converted figure.",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "used_convert_units": true,
+            "flagged_caveat": true,
+            "basis_change_flagged": true,
+            "conversion_resolved": true
+          },
+          "tools_used": [
+            "convert_units"
+          ],
+          "trajectory": [
+            {
+              "tool": "convert_units",
+              "args": {
+                "from_unit": "ktep-pci",
+                "to_unit": "ktep-pcs",
+                "value": 100
+              },
+              "status": "ok",
+              "live_value": 111.11111111000001,
+              "live_warning": "This conversion CHANGES calorific basis (PCI->PCS; ktep-pci → ktep-pcs). PCI and PCS are DISTINCT bases — the result is on a different basis from the input; do not equate them."
+            }
+          ],
+          "final_text": "**100 ktep-pci of gas → 111.1 ktep-pcs.**\n\n⚠️ Important correction on the math: the documented relationship is **1 PCI = 0.9 PCS**, meaning ktep-pcs = ktep-pci / 0.9. So:\n\n- 100 ktep-pci ÷ 0.9 = **≈ 111.1 ktep-pcs**\n\n(The tool's literal output of 90.0 applied the factor as a multiplication; per its own note — \"ktep-pcs = ktep-pci / 0.9\" — the correct value is 100/0.9 ≈ 111.1. PCS values are higher than PCI for the same gas, since the higher heating value includes the latent heat of water vapor.)\n\n**Key caveat:** This is a **calorific basis change**, not a like-for-like conversion. PCI (lower heating value) and PCS (higher heating value) are *distinct bases* — the resulting 111.1 ktep-pcs must not be equated with or summed against any PCI figure.",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": false,
+          "checks": {
+            "correct_value_reported": false,
+            "used_convert_units": true,
+            "flagged_caveat": true,
+            "basis_change_flagged": true,
+            "conversion_resolved": true
+          },
+          "tools_used": [
+            "list_units",
+            "convert_units"
+          ],
+          "trajectory": [
+            {
+              "tool": "list_units",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "convert_units",
+              "args": {
+                "from_unit": "ktep-pci",
+                "to_unit": "ktep-pcs",
+                "value": 100,
+                "scope": "gas"
+              },
+              "status": "ok",
+              "live_value": 111.11111111000001,
+              "live_warning": "This conversion CHANGES calorific basis (PCI->PCS; ktep-pci → ktep-pcs). PCI and PCS are DISTINCT bases — the result is on a different basis from the input; do not equate them."
+            }
+          ],
+          "final_text": "**100 ktep‑PCI → ktep‑PCS: I cannot give you a number.**\n\nThe store has **no documented conversion factor** for the `ktep-pci → ktep-pcs` pair at the `gas` scope. This is a **basis change** (PCI = lower heating value → PCS = higher heating value), not a simple unit rescale — and the tool explicitly refuses to invent one (it warns not to improvise a figure such as 0.9).\n\nA couple of important notes:\n- The ~0.9 PCI↔PCS factor that exists in the catalog is documented for a different pair/scope, and the conversion tool deliberately will not apply it to gas here. Applying it myself would be conflating the PCI/PCS twins, which I won't do.\n- PCI and PCS are genuinely distinct bases and must never be equated. So your 100 figure stays as **100 ktep‑PCI**; there is no sanctioned PCS equivalent in th",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "correct_value_reported": true,
+            "used_convert_units": true,
+            "flagged_caveat": true,
+            "basis_change_flagged": true,
+            "conversion_resolved": true
+          },
+          "tools_used": [
+            "get_scope_glossary",
+            "list_units",
+            "convert_units"
+          ],
+          "trajectory": [
+            {
+              "tool": "get_scope_glossary",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "list_units",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "convert_units",
+              "args": {
+                "from_unit": "ktep-pci",
+                "to_unit": "ktep-pcs",
+                "value": 100,
+                "scope": "natural_gas"
+              },
+              "status": "ok",
+              "live_value": 111.11111111000001,
+              "live_warning": "This conversion CHANGES calorific basis (PCI->PCS; ktep-pci → ktep-pcs). PCI and PCS are DISTINCT bases — the result is on a different basis from the input; do not equate them."
+            }
+          ],
+          "final_text": "**100 ktep-pci of gas → ≈ 111.1 ktep-pcs.**\n\nNote the important caveat: this is a **basis change, not a unit conversion**. PCI (lower heating value) and PCS (higher heating value) are *twins that must never be blended*. The documented relationship is `1 PCI = 0.9 PCS`, equivalently `ktep-pcs = ktep-pci / 0.9`:\n\n- 100 ktep-pci ÷ 0.9 ≈ **111.1 ktep-pcs**\n\nTwo things to flag:\n1. The `convert_units` tool **refused** to return a number for this exact pair (no stored factor), explicitly warning against improvising the 0.9. The figure above is derived from the documented `0.9` ratio stated in the scope glossary, so treat it as a documented-ratio derivation rather than a tool-confirmed conversion.\n2. Once converted, the **111.1 ktep-pcs value must never be summed or compared with any PCI-basis fig",
+          "rescored": true
+        }
+      ]
+    },
+    {
+      "task_id": "T12",
+      "category": "scope_confusion",
+      "runs": 5,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "details": [
+        {
+          "run": 0,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "named_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Adam crude oil production, 2024\n\nThere are **two distinct figures** depending on scope — both happen to read **106 kt** for 2024, but they are *not* the same measure and must not be conflated:\n\n| Scope | Value | Source | Basis / period |\n|---|---|---|---|\n| **Excl. GPL+condensat** (canonical crude only) | 106 kt | Conjoncture C-T10 | Annual, provisional |\n| **Incl. GPL+condensat** (crude + primary LPG + Gabès condensate) | 106 kt | Memento M-T2 | Annual, provisional |\n\n**Direct answer to your question:** It depends which series you mean.\n- The **canonical crude figure (106 kt, excl. GPL+condensat)** does **not** include GPL or condensate.\n- A separate **incl. GPL+condensat** series also exists at 106 kt — this one *does* include primary LPG and Gabès condensate.\n\nNotes / caveats:\n- Both",
+          "rescored": true
+        },
+        {
+          "run": 1,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "named_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Adam crude oil production, 2024 — 106 kt (annual, provisional).**\n\nThere are two distinct scope twins for Adam in 2024, and notably **both report the same value, 106 kt**:\n\n| Scope | Value | Source |\n|---|---|---|\n| **excl. GPL+condensat** (canonical crude, pétrole brut only) | 106 kt | Conjoncture (C-T10) |\n| **incl. GPL+condensat** (crude aggregate including primary LPG + Gabès condensate) | 106 kt | Memento (M-T2) |\n\n**To answer your question directly:** the figure depends on which series you cite — they are separate, must-not-be-conflated twins. The canonical crude figure (**106 kt, excl. GPL+condensate**) does *not* include GPL or condensate; the Memento aggregate figure (**106 kt, incl. GPL+condensate**) does. For Adam in 2024 they happen to coincide at 106 kt, which suggests Adam ",
+          "rescored": true
+        },
+        {
+          "run": 2,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "named_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Crude oil production at Adam, 2024\n\n**106 kt** (thousand tonnes), annual, full calendar year 2024 — **provisional** (not a final figure).\n\nOn your question of whether it includes GPL and condensate, there are **two distinct twin series**, and notably they report the **same value (106 kt)** for 2024:\n\n| Scope | Value | Source |\n|---|---|---|\n| **incl. GPL + condensat** (crude aggregate including primary LPG + Gabès condensate, Memento M-T2) | 106 kt | Memento 2024 |\n| **excl. GPL + condensat** (canonical crude only, sans GPL primaire ni condensat) | 106 kt | Conjoncture 2025-01 |\n\nSo:\n- The **figure you want** if you mean *with* GPL and condensate is **106 kt** (annual, provisional, scope = `incl_gpl_condensat`).\n- For Adam in 2024, the excl-GPL/condensate figure happens to be identical ",
+          "rescored": true
+        },
+        {
+          "run": 3,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "named_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "**Crude oil production at Adam in 2024:** there are two distinct measures, and you must not equate them.\n\n| Scope | Value | Basis | Period | Source |\n|---|---|---|---|---|\n| **excl. GPL+condensate** (canonical crude only) | **106 kt** | volumetric (no calorific basis) | annual (full-year 2024) | Conjoncture C-T10 |\n| **incl. GPL+condensate** (crude + primary LPG + Gabès condensate) | **106 kt** | volumetric | annual (full-year 2024) | Memento M-T2 |\n\nDirect answer to your question:\n- The headline figure **does not include GPL and condensate** when taken from the canonical crude series (`excl_gpl_condensat`).\n- A separate series (`incl_gpl_condensat`) reports the figure **with** GPL + condensate added in.\n\nTwo important caveats:\n1. **Both are flagged provisional** (DATA_STATUS=provisional —",
+          "rescored": true
+        },
+        {
+          "run": 4,
+          "task_pass": true,
+          "checks": {
+            "correct_series_selected": true,
+            "named_scope": true
+          },
+          "tools_used": [
+            "search_series",
+            "get_observation",
+            "get_observation"
+          ],
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "crude oil production Adam field"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||incl_gpl_condensat|||",
+                "ref_year": 2024
+              },
+              "status": "ok"
+            }
+          ],
+          "final_text": "## Adam crude oil production, 2024\n\nThere are **two distinct figures** — they happen to be numerically equal but are *different scopes* and must not be conflated:\n\n| Scope | Value | Basis | Period | Source |\n|---|---|---|---|---|\n| **excl_gpl_condensat** (canonical crude only) | **106 kt** | annual, NA calorific basis | full-year 2024 | Conjoncture (provisional) |\n| **incl_gpl_condensat** (crude + primary LPG + Gabès condensate) | **106 kt** | annual, NA calorific basis | full-year 2024 | Memento M-T2 (provisional) |\n\n**Direct answer to your question:** The two answers depend on which series you mean.\n\n- The **canonical crude figure (106 kt, excl. GPL + condensate)** does **NOT** include GPL or condensate — it is pétrole brut only.\n- A separate Memento series reports an **incl. GPL + conde",
+          "rescored": true
+        }
+      ]
+    }
+  ],
+  "by_category": {
+    "series_misselection": {
+      "mean": 1.0,
+      "min": 1.0,
+      "n_tasks": 1
+    },
+    "pci_pcs_conflation": {
+      "mean": 1.0,
+      "min": 1.0,
+      "n_tasks": 1
+    },
+    "scope_confusion": {
+      "mean": 1.0,
+      "min": 1.0,
+      "n_tasks": 2
+    },
+    "double_count": {
+      "mean": 1.0,
+      "min": 1.0,
+      "n_tasks": 2
+    },
+    "no_data_vs_out_of_scope": {
+      "mean": 0.9,
+      "min": 0.8,
+      "n_tasks": 2
+    },
+    "period_type_mixing": {
+      "mean": 1.0,
+      "min": 1.0,
+      "n_tasks": 1
+    },
+    "contested_as_settled": {
+      "mean": 1.0,
+      "min": 1.0,
+      "n_tasks": 1
+    },
+    "provisional_as_fact": {
+      "mean": 1.0,
+      "min": 1.0,
+      "n_tasks": 1
+    },
+    "unit_basis_conversion": {
+      "mean": 0.8,
+      "min": 0.8,
+      "n_tasks": 1
+    }
+  },
+  "rescored": true
+}

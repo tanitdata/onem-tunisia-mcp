@@ -1,0 +1,1091 @@
+{
+  "specimen": "tn_dz_royalty",
+  "model": "us.anthropic.claude-opus-4-8",
+  "backend": "bedrock",
+  "runs": 3,
+  "per_variant": [
+    {
+      "variant": "B",
+      "runs": 3,
+      "mean_pass": 1.0,
+      "variance": 0.0,
+      "criterion_means": {
+        "C1_quantity_separation": 1.0,
+        "C2_footnote_surfaced": 1.0,
+        "C3_out_of_scope_honesty": 1.0,
+        "C4_epistemic_refusal": 1.0
+      },
+      "details": [
+        {
+          "variant": "B",
+          "checks": {
+            "C1_quantity_separation": true,
+            "C2_footnote_surfaced": true,
+            "C3_out_of_scope_honesty": true,
+            "C4_epistemic_refusal": true,
+            "retrieved_redevance_series": true,
+            "probed_transit": true
+          },
+          "auto_fail": false,
+          "auto_fail_reasons": [],
+          "task_pass": true,
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "search_series",
+            "search_series",
+            "search_series",
+            "get_scope_glossary",
+            "search_series",
+            "describe_series",
+            "describe_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "search_series",
+            "search_series",
+            "list_series",
+            "search_series",
+            "list_dimensions",
+            "list_series",
+            "get_conflicts"
+          ],
+          "final_text": "I now have everything I can get from the store. Let me compile the answer.\n\n## Summary\n\n### (1) The à-fin-avril (YTD through 30 April) numbers, on a consistent basis\n\nBoth series are reported on **PCI basis** (lower heating value), in **ktep-pci**, as **year-to-date cumulative** through end-April, geography = Tunisia's national gas account (gaz commercial sec, PCI convention). I'm keeping both on PCI so they're directly comparable. **All values are flagged provisional** (`données provisoires` — April 2026 explicitly so).\n\n| Indicator (à fin avril, ytd, PCI, ktep-pci) | 2025 | 2026 | YoY |\n|---|---|---|---|\n| **Achats de gaz** (purchases from Algeria) | 824 | 921 | **+97 (+11.8%)** |\n| **Redevance / forfait fiscal** (royalty on Algerian transit) | 267 | 182 | **−85 (−31.8%)** |\n\nSo your reading is correct: purchases up ~12%, royalty down ~32% on a like-for-like PCI / ytd-April / national basis.\n\n### (2) What's behind the apparent contradiction\n\nThe two are **not the same physical flow**, so they don't have to move together:\n\n- **Achats de gaz** = gas Tunisia *buys and consumes* from Algeria (a commercial supply purchase). It rose with domestic demand.\n- **Redevance** = an *in-kind fiscal royalty* Tunisia receives for hosting the **transit** of Algerian gas to Italy through the Transmed/trans-Mediterranean pipeline. Its size tracks the **transit volume crossing to Italy**, not Tunisia's own purchases. Those volumes are driven by Sonatrach's export schedule and European demand, which can fall even while Tunisia buys more for itself.\n\nThere is also a specific data-quality caveat that very likely contaminates the 2025→2026 comparison. The redevance series carries footnote **FN-REDEVANCE-OVERDRAW**: *\"dépassement des prélèvements STEG sur la redevance revenant à l'État … 240 millions de Cm³, en cours de régularisation\"* (fin 2025 / 2025). STEG drew down more of the State's royalty than it should have, and that overdraw was still being regularised — so the 2025-2026 royalty cells are explicitly flagged as unreliable/under correction. A drop in the *recorded* royalty can therefore partly reflect this accounting regularisation rather than purely a fall in physical transit.\n\n(Both series are also provisional and subject to revision against Memento/Bilan finals.)\n\n### (3) Transit throughput through Transmed, and the contractual royalty rate (%)\n\n**These two items are not in scope of this store — I cannot give you the numbers, but that does not mean they don't exist.**\n\n- **Physical transit throughput to Italy:** There is *no* transit/throughput flow in the catalog (the `flow` dimension has purchase, import, export, etc. — nothing for transit volume), and the relevant indicator, **\"Quantité des échanges énergétiques\" (trade quantity)**, is a *defined but not-ingested / out-of-scope* indicator. Trade quantities are among the consciously deferred families. Note also footnote **FN-BALANCE-METHOD**: the primary-energy balance deliberately *excludes* the trans-Mediterranean pipeline's compression-station consumption from its boundary — i.e., Transmed physical operation is intentionally outside what this store accounts for.\n- **Contractual royalty rate (%):** There is no rate/percentage series; the royalty is only carried as a **volume in ktep-pci/ktep-pcs** (the in-kind royalty), not as a contractual percentage. So I can't supply a % to cross-check against transited volume.\n\nFor both, you'd need the trade-quantity tables / the transit contract terms, which are outside the ingested ONEM coverage (see coverage_gaps.md).\n\n### Caveats on quoting these\n- Don't blend these PCI figures with any PCS-basis royalty/purchase series (1 PCI = 0.9 PCS).\n- Don't compare an à-fin-avril (ytd) figure with an annual figure.\n- All four numbers above are **provisional**, and the redevance specifically is under regularisation (the 240 Mm³ STEG overdraw), so treat the −32% royalty move as indicative, not audited.\n\nWould you like the same purchases-vs-royalty pair on the **PCS** basis, or the full annual 2025 finals for context?",
+          "run": 0,
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Tunisia gas purchases from Algeria à fin avril",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "redevance royalty Algerian gas transit Transmed",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Transmed pipeline transit throughput to Italy gas",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "achats gaz algérien quantité importation gaz naturel Algérie",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gaz transité volume Transmed redevance en nature transit Italy ktep",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_scope_glossary",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gaz transité Transmed débit quantité de gaz transporté pour le compte Sonatrach transit volume",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gaz transité quantité transit gazoduc transméditerranéen Sergaz volume transporté",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "taux de redevance pourcentage redevance gaz transit rate percent",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "gas_transit",
+                "limit": 20
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gas transit volume transported Algeria to Italy ktep Transmed throughput",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_dimensions",
+              "args": {
+                "dimension": "flow"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "redevance",
+                "limit": 20
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            }
+          ]
+        },
+        {
+          "variant": "B",
+          "checks": {
+            "C1_quantity_separation": true,
+            "C2_footnote_surfaced": true,
+            "C3_out_of_scope_honesty": true,
+            "C4_epistemic_refusal": true,
+            "retrieved_redevance_series": true,
+            "probed_transit": true
+          },
+          "auto_fail": false,
+          "auto_fail_reasons": [],
+          "task_pass": true,
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "search_series",
+            "describe_series",
+            "search_series",
+            "list_series",
+            "get_scope_glossary",
+            "get_conflicts",
+            "search_series"
+          ],
+          "final_text": "I have what I need. Here is the analysis.\n\n## 1. The à-fin-avril numbers, on a consistent basis\n\nBoth series are measured the same way, so they're directly comparable: **calorific basis = PCI (lower heating value), unit = ktep-pci, period = year-to-date cumulative through 30 April** (ytd_cutoff_month = 4). Source: Conjoncture monthly bulletins (C-T11 for purchases, C-T1 for redevance). **All figures are flagged `provisional` (données provisoires)** — April 2026 especially.\n\n| À fin avril (Jan–Apr, ytd, PCI) | 2025 | 2026 | Δ YoY |\n|---|---|---|---|\n| **Achats de gaz algérien** (purchases) | 824 ktep-pci | 921 ktep-pci | **+97 (+11.8%)** |\n| **Redevance / forfait fiscal** (royalty) | 267 ktep-pci | 182 ktep-pci | **−85 (−31.8%)** |\n\nSo your read is correct: purchases up ~12% YoY, royalty down ~32% YoY — on a genuinely consistent basis (same PCI, same ytd-April cutoff, same conjoncture source).\n\n## 2. What's behind the apparent contradiction\n\nThe two are **not mechanically linked in this dataset**, and there is a specific data-quality reason the 2025→2026 royalty looks depressed:\n\n- **They measure different things.** \"Achats de gaz\" is the gas Tunisia *buys* (purchase flow). The \"Redevance / forfait fiscal\" is the royalty Tunisia *receives* on Algerian gas *transiting* to Italy via the trans-Mediterranean pipeline (the `flow.royalty` token is literally labelled \"Royalty (Algerian gas transit)\"). One tracks Tunisian offtake; the other tracks the *transit* throughput to a third party. They can easily move in opposite directions.\n\n- **A documented STEG over-draw is distorting the royalty figure.** The redevance series carries a footnote (FN-REDEVANCE-OVERDRAW): *\"dépassement des prélèvements STEG sur la redevance revenant à l'État … 240 millions de Cm³, en cours de régularisation\"* (fin déc 2025 / 2025). STEG drew down more of the royalty-gas than its entitlement; that ~240 Mm³ is \"in the process of being regularised.\" This is explicitly an open data-quality caveat on the 2025–2026 redevance totals — so the reported 2026 ytd royalty is depressed by an accounting adjustment, not (necessarily) by less physical transit.\n\n- **Provisional + reconciliation churn.** Every cell here is provisional and the redevance series has a long reconciliation history of editions disagreeing on the same cell, with later bulletins revising earlier ytd values. A −32% gap on provisional, pre-audit figures with an active regularisation should be treated as soft.\n\nBottom line: more purchases ≠ less royalty is not a contradiction, because the royalty tracks *transit to Italy* and is currently being skewed by a flagged STEG over-draw still under regularisation.\n\n## 3. Transmed physical transit volume and the contractual royalty rate — out of scope\n\nThis is the important caveat: **I cannot give you the physical Transmed throughput to Italy, nor the contractual royalty rate (%).**\n\n- **Physical transit throughput:** The relevant family — \"Quantité des échanges énergétiques\" (energy-trade quantities) — is a *defined* indicator but has **no ingested series; it is out of scope / not ingested in this store** (consciously deferred, per coverage_gaps.md). That is not the same as \"the data doesn't exist.\" There is no physical gas-transit-volume (Mm³ or similar) series available here to cross-check against. (Note also: the balance methodology footnote FN-BALANCE-METHOD confirms the primary balance deliberately *excludes* the trans-Mediterranean pipeline's compressor-station consumption — the transit physics sit outside the ingested balance.)\n\n- **Contractual royalty rate (%):** There is **no rate/percentage series in scope** — the redevance is only carried as an energy quantity (ktep-pci / ktep-pcs), not as a contractual %. So the volume-vs-rate cross-check you want can't be performed with the catalogued data.\n\nIf you can get the physical transit volume and the contract rate from another source (e.g. the underlying conjoncture/Memento tables or the transit contract itself), the in-scope redevance quantity (182 ktep-pci ytd-April 2026, provisional) is the figure to reconcile against — but bear in mind the ~240 Mm³ STEG over-draw still under regularisation will break a clean rate × volume reconciliation until it's settled.\n\nOne more note: don't blend these PCI figures with the PCS twins (ktep-pcs = ktep-pci / 0.9) — both bases exist in the catalogue for each series.",
+          "run": 1,
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gas purchases from Algeria à fin avril achats gaz algérien",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "redevance royalty Algerian gas fiscal",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Transmed pipeline transit throughput to Italy gazoduc",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gas transit volume Algeria pipeline quantité transitée redevance rate percentage",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "transit gas naturel transité vers Italie débit gazoduc Transmed quantité physique",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "transit_gaz"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "get_scope_glossary",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "taux de redevance pourcentage contractuel 5.25% transit gaz transméditerranéen débit transporté",
+                "limit": 6
+              },
+              "status": "ok"
+            }
+          ]
+        },
+        {
+          "variant": "B",
+          "checks": {
+            "C1_quantity_separation": true,
+            "C2_footnote_surfaced": true,
+            "C3_out_of_scope_honesty": true,
+            "C4_epistemic_refusal": true,
+            "retrieved_redevance_series": true,
+            "probed_transit": true
+          },
+          "auto_fail": false,
+          "auto_fail_reasons": [],
+          "task_pass": true,
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "search_series",
+            "search_series",
+            "search_series",
+            "list_series",
+            "search_series",
+            "describe_series",
+            "describe_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "search_series",
+            "get_scope_glossary",
+            "search_series",
+            "list_series",
+            "search_series",
+            "list_series",
+            "list_series",
+            "get_conflicts"
+          ],
+          "final_text": "I now have everything needed. The Transmed physical transit volume and the contractual royalty rate (%) are trade-quantity / contractual-terms data that are **not ingested** (out of scope), not non-existent. Here is the full answer.\n\n## (1) The à-fin-avril figures, on a consistent basis\n\nBoth pulled at **ytd_cutoff_month = 4 (cumul à fin avril)**, **PCI basis**, **ktep-pci**, **provisional (données provisoires avant audit)**, source = Conjoncture monthly:\n\n| à-fin-avril (cumulé) | 2025 | 2026 | Δ y/y |\n|---|---|---|---|\n| **Achats de gaz** (gas purchases) | 824 ktep-pci | **921 ktep-pci** | **+97 (+11.8%)** |\n| **Redevance / forfait fiscal** (royalty) | 267 ktep-pci | **182 ktep-pci** | **−85 (−31.8%)** |\n\nYour read is confirmed: on a like-for-like basis (same PCI basis, same ytd cut-off, same Conjoncture source), purchases **rose** while the royalty **fell**.\n\n> Both series are flagged `data_status = provisional` (\"Données provisoires pour le mois d'avril 2026\"); Memento/Bilan finals may supersede them. I kept both on **PCI** — do not blend with the PCS twin (ktep-pcs = ktep-pci/0.9).\n\n## (2) Why this isn't actually a contradiction\n\nThe two numbers measure **different physical flows** and the catalog wires them as separate series for exactly this reason:\n\n- **Achats de gaz** = gas Tunisia *buys/consumes* (STEG's commercial supply). That can rise with domestic demand regardless of what crosses the border.\n- **Redevance / forfait fiscal** = the royalty Tunisia receives **in-kind on Algerian gas transiting via the Transmed/trans-Mediterranean pipeline to Italy** (`flow.royalty`, labelled \"Royalty (Algerian gas transit)\"). It tracks **transit throughput**, *not* Tunisian purchases.\n\nSo the royalty is driven by how much gas Algeria ships *through* Tunisia to Italy, while purchases are driven by Tunisian *offtake*. They can — and here do — move in opposite directions: lower physical transit volume to Italy ⇒ lower in-kind royalty, even as Tunisian purchases grow.\n\nThere is also an important **data-quality caveat** attached to the redevance series (footnote FN-REDEVANCE-OVERDRAW): for fin-2025/2026 there was a *\"dépassement des prélèvements STEG sur la redevance revenant à l'État … 240 millions de Cm³, en cours de régularisation.\"* STEG over-drew on the State's royalty share, and that is still being regularised — which can also depress the recorded royalty figure independent of transit volume. Treat the 2025→2026 royalty drop as partly an accounting/regularisation effect, not purely physics.\n\n(Note also that the primary-balance boundary explicitly *excludes* trans-Med compression-station consumption — footnote FN-BALANCE-METHOD — so the royalty sits slightly outside the standard balance perimeter.)\n\n## (3) Transmed physical transit throughput + contractual royalty rate — out of scope\n\nThis is the part I can't give you a number for, and I want to be precise about *why*:\n\n- The **physical volume transited through Transmed to Italy** (a transit/trade quantity, in Mm³ or GWh) falls under the indicator **\"Quantité des échanges énergétiques\" (trade quantity)**, which is a **defined but not-ingested indicator — out of scope** in this store (trade value/quantity is consciously deferred per coverage_gaps.md). It is **not** that the data doesn't exist; it simply isn't loaded here.\n- The **contractual royalty rate (%)** applied to the transited volume is a **contractual term**, and no rate/percentage series is catalogued. The only royalty object available is the **in-kind royalty volume** (`redevance`, in ktep-pci), not a rate.\n\nSo I cannot cross-check the 182 ktep-pci royalty against a transit volume × % within this dataset. To do that you'd need the transit-quantity table and the contractual rate from the source editions (Conjoncture transit/échanges tables or the underlying transit agreement), which are outside what's ingested.\n\n**One thing I deliberately did *not* do:** I didn't try to back-infer the transit volume by dividing the royalty by an assumed rate, and I didn't compare the royalty against the purchases series with the `compare` tool — they are different flows (purchase vs transit royalty) and that comparison would be a twin-conflation, not a valid like-for-like.\n\nIf it's useful, I *can* pull the full 2010–2026 à-fin-avril royalty and purchases history (PCI and PCS), or the gas **resources** grand-total, to give you more context on the royalty's downward trend — just say which.",
+          "run": 2,
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gas purchases from Algeria à-fin-avril",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "redevance royalty Algerian gas",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Transmed pipeline transit throughput to Italy",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "achats gaz algérien quantité importée Sonatrach approvisionnement",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gaz transité Transmed quantité transportée pipeline gazoduc transit",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "redevance"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "quantité de gaz algérien transité vers Italie volume physique transit gazoduc",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "transit gaz quantité transportée gazoduc trans-méditerranéen débit volume vers Italie redevance taux pourcentage",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_scope_glossary",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "redevance en nature taux contractuel pourcentage prélèvement STEG transit gaz part Etat",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "gas_transit"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gaz transité quantité gazoduc transmed transport Sergaz throughput Mm3 GWh",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "gas_transit"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "transit"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "runs": 3,
+      "mean_pass": 0.333,
+      "variance": 0.2222,
+      "criterion_means": {
+        "C1_quantity_separation": 0.333,
+        "C2_footnote_surfaced": 1.0,
+        "C3_out_of_scope_honesty": 1.0,
+        "C4_epistemic_refusal": 0.667
+      },
+      "details": [
+        {
+          "variant": "A",
+          "checks": {
+            "C1_quantity_separation": false,
+            "C2_footnote_surfaced": true,
+            "C3_out_of_scope_honesty": true,
+            "C4_epistemic_refusal": false,
+            "retrieved_redevance_series": true,
+            "probed_transit": true
+          },
+          "auto_fail": false,
+          "auto_fail_reasons": [],
+          "task_pass": false,
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "search_series",
+            "search_series",
+            "search_series",
+            "get_scope_glossary",
+            "get_series",
+            "get_series",
+            "describe_series",
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "search_series",
+            "compare",
+            "list_series"
+          ],
+          "final_text": "The compare passed (same basis/period/scope), confirming purchases and royalty are on a consistent footing. Now I have everything I need.\n\n## تحليل علاقة تونس–الجزائر في الغاز — بداية 2026 (à fin avril)\n\n### (1) الأرقام à-fin-avril على نفس الأساس\n\nكل الأرقام على أساس **PCI** (pouvoir calorifique inférieur)، **ytd_cumulative à fin avril** (cutoff = الشهر 4، أي تراكمي جانفي→أفريل)، gaz commercial sec، **provisoires** (مازالت غير مُدقّقة):\n\n| المؤشر | à fin avril 2025 | à fin avril 2026 | التغيّر |\n|---|---|---|---|\n| مشتريات الغاز (Achats de gaz) | 824 ktep-pci | **921 ktep-pci** | +97 (≈ +11.8%) |\n| الريع/الإتاوة (Redevance) | 267 ktep-pci | **182 ktep-pci** | −85 (≈ −31.8%) |\n\nأداة `compare` قبلت المقارنة (نفس الأساس PCI، نفس الـperiod_type ytd، نفس النطاق) — إذن المقارنة شرعية.\n\n### (2) تفسير «التناقض» الظاهري\n\n**لا يوجد تناقض حقيقي — هما تدفّقان مختلفان لا يتحرّكان معاً:**\n\n- **المشتريات** = ما **تشريه STEG/تونس** من غاز جزائري لتزويد السوق الداخلية. زيادتها تعكس طلباً داخلياً أعلى (كهرباء/استهلاك).\n- **الريع/الإتاوة** = ما **تقبضه الدولة كرسم عبور** (forfait fiscal / redevance) مقابل مرور الغاز الجزائري نحو إيطاليا عبر الأنبوب الترانس-متوسطي. هذا مرتبط بـ**كميات الترانزيت نحو إيطاليا**، لا بمشتريات تونس.\n\nفالشراء الأكثر (طلب داخلي) لا يولّد ريعاً أكثر؛ الريع يتحرّك مع حجم العبور نحو إيطاليا. تراجع الريع −32% يدلّ على **انخفاض كميات الترانزيت** عبر الأنبوب في الفترة، أو على تسويات.\n\n**تحذير جوهري على بيانات الريع 2025–2026** (footnote FN-REDEVANCE-OVERDRAW): هناك **«dépassement des prélèvements STEG sur la redevance revenant à l'État ≈ 240 millions de Cm³، en cours de régularisation»** (à fin déc 2025). أي أنّ STEG سحبت من حصّة الريع العائدة للدولة، وهي قيد التسوية — وهذا قد يفسّر جزءاً من تراجع الرقم المُقيَّد للدولة بمعزل عن الترانزيت الفعلي. كما أنّ الرقمين **provisoires avant audit**.\n\n### (3) كمية الترانزيت الفعلية عبر الأنبوب الترانس-متوسطي + النسبة التعاقدية\n\nهنا يجب أن أكون صريحاً:\n\n- **كمية الترانزيت المادية (débit/throughput) نحو إيطاليا**: هذه تنتمي لمؤشّر **«Quantité des échanges énergétiques» (trade_quantity)** وهو **مؤشّر مُعرّف لكنه غير مُدمج (out-of-scope / non ingéré)** في هذا المخزن. **ليس معناه أنّ البيانات غير موجودة** — فقط لم تُدخَل ضمن السلاسل المتاحة. لذلك **لا أستطيع إعطاء رقم throughput بـ Mm³/GWh** من هذه الأدوات.\n  - ملاحظة منهجية مهمّة (footnote FN-BALANCE-METHOD): الميزان الطاقي الأوّلي التوني **يستثني صراحةً استهلاك محطات ضغط الأنبوب الترانس-متوسطي** ولا يُدرج كميات العبور كموردٍ وطني — لذا حتى سلاسل «الموارد» لا تحمل حجم الترانزيت الفيزيائي.\n\n- **النسبة التعاقدية للريع (%)**: قيمة النسبة المئوية التعاقدية المطبّقة (redevance rate %) **غير موجودة كحقل أو footnote** ضمن metadata السلسلة المتاحة هنا؛ ما هو مُدمج فقط هو **الناتج الكمّي للريع بـ ktep-pci/pcs**، لا المعدّل التعاقدي. لذا لا أستطيع الاستشهاد بنسبة % من هذه الأدوات دون اختلاق.\n\n### الخلاصة\nالمشتريات ↑ والريع ↓ ليسا متناقضين: الأول طلب تونسي داخلي، الثاني رسم عبور للترانزيت نحو إيطاليا — قناتان منفصلتان. تراجع الريع يرجّح انخفاض كميات العبور و/أو يتأثّر بتسوية تجاوز سحب STEG البالغ ≈240 mln Cm³ (قيد التسوية). أمّا **حجم الترانزيت الفيزيائي ونسبة الريع التعاقدية** فكلاهما **خارج نطاق ما هو مُدمج** في هذا المخزن — وليس انعداماً للبيانات.",
+          "run": 0,
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Tunisia purchases of Algerian gas imports à fin avril",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "fiscal royalty redevance fiscale on Algerian gas Transmed",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Transmed pipeline transit throughput gas to Italy Tunisia",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "achats redevance gaz algérien purchases natural gas import quantity à fin avril 2026",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "transit gazoduc Transmed débit quantité transportée Italie volume",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_scope_glossary",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "exclude_provisional": false
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "exclude_provisional": false
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "redevance en nature quantité gaz transité transit volume Algeria pipeline throughput physical",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "transit Algérie gaz quantité transportée gazoduc trans-méditerranéen débit GWh Mm3",
+                "limit": 5
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "compare",
+              "args": {
+                "series_ids": [
+                  "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                  "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+                ],
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "trade_quantity"
+              },
+              "status": "out_of_scope"
+            }
+          ]
+        },
+        {
+          "variant": "A",
+          "checks": {
+            "C1_quantity_separation": false,
+            "C2_footnote_surfaced": true,
+            "C3_out_of_scope_honesty": true,
+            "C4_epistemic_refusal": true,
+            "retrieved_redevance_series": true,
+            "probed_transit": true
+          },
+          "auto_fail": false,
+          "auto_fail_reasons": [],
+          "task_pass": false,
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "search_series",
+            "search_series",
+            "get_scope_glossary",
+            "get_series",
+            "get_series",
+            "search_series",
+            "describe_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "search_series",
+            "list_series",
+            "list_series",
+            "search_series",
+            "describe_series",
+            "get_conflicts",
+            "list_dimensions"
+          ],
+          "final_text": "I now have everything I need. There is no `flow.transit` (physical Transmed throughput volume) ingested, and no contractual-rate (%) series — those fall under the deferred \"Quantité des échanges énergétiques\" / trade family. Let me give the complete answer.\n\n---\n\n## تحليل علاقة تونس–الجزائر في الغاز — موفّى أفريل (à fin avril)\n\n### (1) الأرقام الحقيقية à-fin-avril على نفس الأساس\n\nكل الأرقام أدناه على **نفس القاعدة**: أساس حراري **PCI** (ktep-pci)، نوع الفترة **سنة-حتى-تاريخه تراكمي (ytd_cumulative, cutoff = شهر 4 / موفّى أفريل)**، gaz commercial sec. كلها **مؤقتة (provisional)** — منبعها conjoncture، والإصدار 2026/04 مُعلّم صراحةً «Données provisoires pour le mois d'avril 2026».\n\n| المؤشر | موفّى أفريل 2025 | موفّى أفريل 2026 | التغيّر |\n|---|---|---|---|\n| **مشتريات الغاز الجزائري** (Achats, C-T11) | 824 ktep-pci | **921 ktep-pci** | **+97 (+11.8%)** ↑ |\n| **الريع / الفرفيتيّة الجبائية** (Redevance, C-T1) | 267 ktep-pci | **182 ktep-pci** | **−85 (−31.8%)** ↓ |\n\nإذن التناقض الظاهري حقيقي في الأرقام: المشتريات **زادت** والريع **نقص** على نفس الأساس والفترة بالضبط.\n\n### (2) تفسير «التناقض» الظاهري\n\nالمفتاح هو أنّ **«المشتريات» و«الريع» توأمان مختلفان (twins)، مش نفس التدفّق** — رغم اشتراكهما في الوحدة والأساس:\n\n- **`flow.purchase`** = الغاز اللي تونس **تشريه فعلاً** من الجزائر (شراء تجاري للاستهلاك المحلي عبر STEG). يكبر مع زيادة الطلب الوطني.\n- **`flow.royalty`** (الريع/الفرفيتيّة) = الغاز اللي تقبضو الدولة **في الطبيعة (en nature) كمقابل عبور** الأنبوب الترانسمتوسطي (Transmed) للغاز الجزائري نحو إيطاليا. هذا مرتبط بـ**كميّة العبور (transit)**، مش بمشتريات تونس.\n\nفهما يتحرّكان بمحرّكين مختلفين تماماً: الأول بالطلب التونسي، والثاني بكميّة الغاز اللي تمرّرها الجزائر نحو إيطاليا. لذلك **زيادة مشترياتنا لا تستلزم بالضرورة زيادة الريع** — وقد يقلّ الريع إذا قلّ العبور نحو إيطاليا، حتى لو زادت مشترياتنا.\n\nسبب إضافي مُوثّق يخصّ 2025–2026 بالذات (footnote `FN-REDEVANCE-OVERDRAW`): فيه **تجاوز في سحوبات STEG على الريع العائد للدولة (≈ 240 مليون م³ \"en cours de régularisation\")** موفّى ديسمبر 2025. هذا يُحمّل قيمة الريع المُحاسَبة عدم استقرار، ويعني أنّ رقم 2026 قابل للمراجعة. + الرقمان **مؤقتان قبل التدقيق**.\n\n⚠️ ملاحظة منهجية: لا يجوز **جمع** هذين الرقمين ولا معاملتهما كمؤشّر واحد — حتى في الميزان، الريع يدخل كمورد وطني فقط تحت toggle `redevance=incl` (مقابل `excl`)، ولا يُمزَج معدّله مع المشتريات.\n\n### (3) كميّة العبور الفيزيائية عبر Transmed + النسبة التعاقدية للريع\n\nهذان العنصران **غير مُدرَجين في المخزن (out of scope / not ingested)** — وهذا **لا يعني أنّ البيانات غير موجودة**، بل أنّها لم تُستوعَب بعد:\n\n- **الكميّة الفيزيائية المنقولة عبر Transmed نحو إيطاليا** (débit/throughput بالـ GWh أو م³): تقع ضمن العائلة المؤجّلة **«Quantité des échanges énergétiques» (trade_quantity)**، اللي ردّ النظام عليها صراحةً بـ *out_of_scope / not ingested*. المتوفّر فقط هو **مكافئ الريع في الطبيعة** (182 ktep-pci à-fin-avril 2026 أعلاه)، مش حجم العبور الإجمالي. كما أنّ حدود ميزان الطاقة نفسها (footnote `FN-BALANCE-METHOD`) **تستثني استهلاك محطات ضغط الأنبوب الترانسمتوسطي**، فالعبور غير محسوب أصلاً ضمن الميزان الأولي.\n- **النسبة التعاقدية للريع (%)** (مثل النسبة المطبّقة على كميّة العبور): **غير مُدرَجة كسلسلة** — ما فمّاش series تحمل قيمة نسبة مئوية؛ المخزن يحتفظ فقط بالناتج (الريع بـ ktep-pci/ktep-pcs)، لا بمعامل النسبة. لا أستطيع اقتباس رقم نسبة من البيانات المتاحة.\n\n### خلاصة موجزة\nالمشتريات à-fin-avril ارتفعت من **824 → 921 ktep-pci (+11.8%)** بينما الريع نقص من **267 → 182 ktep-pci (−31.8%)** (كلاهما PCI، ytd موفّى أفريل، مؤقت). لا تناقض: المشتريات = شراء تونس للاستهلاك؛ الريع = مقابل عبور الغاز الجزائري نحو إيطاليا — تدفّقان مختلفان، ولا يُجمعان. كميّة العبور الفيزيائية والنسبة التعاقدية (%) خارج نطاق الاستيعاب حالياً.",
+          "run": 1,
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Tunisia purchases of Algerian gas à fin avril",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "royalty fiscal revenue Algerian gas Transmed transit Tunisia",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "achats gaz algérien Tunisia imports purchases natural gas ytd",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "Transmed pipeline transit throughput gas to Italy quantity transited",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_scope_glossary",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "exclude_provisional": false
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_series",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "exclude_provisional": false
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "quantité gaz transité redevance en nature transit volume GWh Transmed throughput",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gaz transité quantité physique gazoduc transméditerranéen débit transit Italie volume",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "gas_transit"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "gas_transit"
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "taux redevance contractuel pourcentage 5.25% 6.75% Sonatrach transit royalty rate in kind",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_dimensions",
+              "args": {
+                "dimension": "flow"
+              },
+              "status": "ok"
+            }
+          ]
+        },
+        {
+          "variant": "A",
+          "checks": {
+            "C1_quantity_separation": true,
+            "C2_footnote_surfaced": true,
+            "C3_out_of_scope_honesty": true,
+            "C4_epistemic_refusal": true,
+            "retrieved_redevance_series": true,
+            "probed_transit": true
+          },
+          "auto_fail": false,
+          "auto_fail_reasons": [],
+          "task_pass": true,
+          "tools_used": [
+            "search_series",
+            "search_series",
+            "describe_series",
+            "describe_series",
+            "search_series",
+            "search_series",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "get_observation",
+            "search_series",
+            "get_scope_glossary",
+            "search_series",
+            "list_series",
+            "get_conflicts",
+            "compare"
+          ],
+          "final_text": "The compare passed cleanly (both PCI, ytd_cumulative, same conjoncture basis — guardrail-compatible). I now have a complete, consistent picture.\n\n## 1) Les chiffres à-fin-avril (cumul janvier→avril, base cohérente)\n\nBoth series read on the **same basis**: **PCI (pouvoir calorifique inférieur), ktep-pci, year-to-date cumulatif au 30 avril, source conjoncture, données provisoires**. The `compare` guardrail accepted the pair (identical basis/period). All figures are **provisional** (FN-PROVISIONAL; April 2026 explicitly flagged).\n\n| Cumul à fin avril (PCI, ktep-pci, ytd) | 2025 | 2026 | Δ |\n|---|---|---|---|\n| **Achats de gaz** (algérien) | 824 | 921 | **+97 (+11,8 %)** |\n| **Redevance / forfait fiscal** | 267 | 182 | **−85 (−31,8 %)** |\n\nSo your reading of the trend is correct on a consistent basis: **achats ↑, redevance ↓** entre les quatre premiers mois 2025 et 2026.\n\n## 2) Le « paradoxe » apparent — pourquoi il n'en est pas un\n\nLes deux flux ne mesurent pas la même chose et ne sont pas censés bouger ensemble :\n\n- **« Achats de gaz »** = le gaz que la Tunisie **achète** à la Sonatrach pour sa propre consommation. Il dépend de la demande intérieure (élec + non-élec).\n- **« Redevance / forfait fiscal »** (label EN : *Royalty — Algerian gas transit*) = le **droit de passage** que la Tunisie perçoit en nature **sur le gaz qui transite vers l'Italie via le Transmed**. Il dépend du **débit transité vers l'Italie**, pas des achats tunisiens.\n\nDonc acheter plus de gaz pour soi-même n'augmente en rien la redevance : la redevance suit le **transit Algérie→Italie**, qui peut baisser indépendamment (moindres nominations italiennes, maintenance gazoduc, arbitrage GNL en Europe…).\n\nDeux mises en garde additionnelles attachées à la série redevance, qui pèsent directement sur l'interprétation de la baisse 2025→2026 :\n\n- **FN-REDEVANCE-OVERDRAW** : « dépassement des prélèvements STEG sur la redevance revenant à l'État … **240 millions de Cm³, en cours de régularisation** » (fin 2025 / 2026). Autrement dit, une partie de la redevance due à l'État a été surconsommée par la STEG et est en cours de régularisation — la baisse du chiffre 2026 est en partie **comptable/de régularisation**, pas uniquement physique.\n- Le **bilan exclut explicitement** la consommation des stations de compression du Transmed (FN-BALANCE-METHOD), donc ces chiffres sont nets de cet autoconsommation.\n\n**Conclusion** : il n'y a pas de contradiction. Les achats reflètent la consommation tunisienne (en hausse) ; la redevance reflète le transit vers l'Italie (en baisse) plus un effet de régularisation STEG de 240 Mm³.\n\n## 3) Débit physique transité par le Transmed vers l'Italie + taux contractuel (%)\n\nIci je dois être franc sur la couverture du store :\n\n- **Le débit physique transité vers l'Italie** — la quantité brute de gaz réellement déplacée dans le Transmed — **n'est pas ingéré** dans ce store. La famille correspondante (*Quantité des échanges énergétiques* / `trade_quantity`) est un indicateur **défini mais hors périmètre / non chargé** (out of scope) — ce n'est **pas** « la donnée n'existe pas ». Le store ne contient que la **redevance perçue en nature** (proxy, en ktep-pci), pas le throughput brut du tube. De plus, la méthode du bilan **exclut** la consommation des stations de compression du Transmed, donc même le périmètre énergétique ici ne représente pas le transit brut.\n- **Le taux contractuel de la redevance (%)** — le pourcentage du débit transité reversé à la Tunisie — **n'est pas présent** comme série dans le catalogue. La table ne fournit que le **volume** de redevance (ktep-pci/pcs), jamais le **taux**. Je ne peux donc pas vous citer un pourcentage à partir de ce store sans inventer un chiffre.\n\nSi vous voulez, je peux :\n- vous donner la même comparaison **en base PCS** (ktep-pcs) au lieu de PCI, ou en **annuel** plutôt qu'en ytd ;\n- sortir le **profil mensuel complet** 2025 vs 2026 (les deux séries vont jusqu'au cumul disponible) pour visualiser où la divergence achats/redevance se creuse.",
+          "run": 2,
+          "trajectory": [
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "achats gaz algérien Tunisie purchases Algerian gas imports",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "redevance fiscale gaz algérien royalty Transmed transit Italie",
+                "limit": 10
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "describe_series",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "transit gaz Transmed débit volume physique gazoduc Italie throughput",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "taux redevance contractuel pourcentage royalty rate percent transit",
+                "limit": 8
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2025
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_observation",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                "ref_year": 2026
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "quantité transitée transmed gaz transit débit volume Sergaz",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "get_scope_glossary",
+              "args": {},
+              "status": "ok"
+            },
+            {
+              "tool": "search_series",
+              "args": {
+                "query": "gaz transité quantité transportée pipeline trans-méditerranéen vers Italie volume gross",
+                "limit": 6
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "list_series",
+              "args": {
+                "indicator": "transit",
+                "limit": 20
+              },
+              "status": "out_of_scope"
+            },
+            {
+              "tool": "get_conflicts",
+              "args": {
+                "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+              },
+              "status": "ok"
+            },
+            {
+              "tool": "compare",
+              "args": {
+                "series_ids": [
+                  "gas_purchase|flow.purchase|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||",
+                  "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|ytd_cumulative|||||"
+                ],
+                "ref_year": 2026
+              },
+              "status": "ok"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

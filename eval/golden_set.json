@@ -1,0 +1,536 @@
+{
+  "version": "1.3.0",
+  "created": "2026-06-26",
+  "changelog": "1.3.0: F-3 ruling (2026-06-26) — corrected the INVERTED PCI<->PCS conversion. Ground truth = DB same-gas magnitudes (Miskar 2024 PCI=317 < PCS=353), not the prior golden value. PCI->PCS now DIVIDES by 0.9 (x1.111, value increases ~111.1); PCS->PCI multiplies by 0.9. All layer1_convert PCI->PCS cases and T11 expect_value moved 90.0 -> 111.111; L1c-pcs-pci re-cast as 100 pcs -> 90 pci. The prior 90.0 was validating the bug (a passing test against a wrong expectation). 1.2.0: F-1 regression cases for convert_units scope/carrier synonym normalization. Added layer1_convert cases for gas synonyms (gas, natural_gas, 'natural gas', 'Natural Gas' — seeded from saved T11 trajectory args), a second carrier (electricity synonyms power/elec), and an unmapped-scope fail-safe (banana -> no_factor). layer1_convert loop now passes optional scope. No expected values changed. 1.1.0: scoring calibration after the first Bedrock Layer-2 baseline. T06/T07 forbid_phrases narrowed to genuinely-misleading absence claims (CLAUDE.md #5 forbids implying data does NOT EXIST, not the words 'not available' used WITH an out-of-scope statement). T03 accepts the leaves-sum path (CLAUDE.md #2 permits 'sum leaves OR read grand_total'). No expected values changed; these are eval-artifact fixes, not interface changes.",
+  "review_status": "machine-derived from energy.duckdb @ build 2026-06-26; human-review pending (see README 'Updating the golden set')",
+  "grounding": "Expected values/qualifiers derived by DIRECT query on v_series_clean. A DB-vs-source discrepancy is the pre-MCP audit's job, not this eval's (CLAUDE.md scope boundary).",
+  "failure_modes": [
+    "pci_pcs_conflation",
+    "period_type_mixing",
+    "scope_confusion",
+    "double_count",
+    "no_data_vs_out_of_scope",
+    "series_misselection",
+    "qualifier_drop",
+    "provisional_as_fact",
+    "contested_as_settled",
+    "unit_basis_conversion"
+  ],
+  "layer1_retrieval": [
+    {
+      "id": "L1-gas-prod-miskar-PCI-2024",
+      "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+      "ref_year": 2024,
+      "expect_value": 317.0,
+      "expect_unit": "ktep-pci",
+      "expect_basis": "PCI",
+      "expect_period_type": "annual",
+      "expect_scope": "commercial_dry",
+      "expect_aggregation_role": "leaf",
+      "modes": [
+        "pci_pcs_conflation",
+        "qualifier_drop"
+      ]
+    },
+    {
+      "id": "L1-gas-prod-miskar-PCS-2024",
+      "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||",
+      "ref_year": 2024,
+      "expect_value": 353.0,
+      "expect_unit": "ktep-pcs",
+      "expect_basis": "PCS",
+      "expect_period_type": "annual",
+      "expect_scope": "commercial_dry",
+      "expect_aggregation_role": "leaf",
+      "modes": [
+        "pci_pcs_conflation",
+        "qualifier_drop"
+      ]
+    },
+    {
+      "id": "L1-elec-sales-bt-2024",
+      "series_id": "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||",
+      "ref_year": 2024,
+      "expect_value": 8839.0,
+      "expect_unit": "GWh",
+      "expect_period_type": "annual",
+      "expect_aggregation_role": "leaf",
+      "modes": [
+        "qualifier_drop"
+      ]
+    },
+    {
+      "id": "L1-elec-sales-local-total-2024",
+      "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local",
+      "ref_year": 2024,
+      "expect_value": 17089.0,
+      "expect_unit": "GWh",
+      "expect_geography_scope": "local",
+      "expect_aggregation_role": "grand_total",
+      "modes": [
+        "scope_confusion",
+        "qualifier_drop"
+      ]
+    },
+    {
+      "id": "L1-elec-sales-inclexp-total-2024",
+      "series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||incl_exports",
+      "ref_year": 2024,
+      "expect_value": 17196.9,
+      "expect_unit": "GWh",
+      "expect_geography_scope": "incl_exports",
+      "expect_aggregation_role": "grand_total",
+      "modes": [
+        "scope_confusion",
+        "qualifier_drop"
+      ]
+    },
+    {
+      "id": "L1-elec-prod-grandtotal-2024",
+      "series_id": "electricity_production|flow.primary_production|||||||NA|GWh|annual|||||",
+      "ref_year": 2024,
+      "expect_value": 19208.0,
+      "expect_unit": "GWh",
+      "expect_period_type": "annual",
+      "expect_aggregation_role": "grand_total",
+      "modes": [
+        "double_count",
+        "qualifier_drop"
+      ]
+    },
+    {
+      "id": "L1-crude-adam-2024",
+      "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+      "ref_year": 2024,
+      "expect_value": 106.0,
+      "expect_unit": "kt",
+      "expect_scope": "excl_gpl_condensat",
+      "expect_aggregation_role": "leaf",
+      "modes": [
+        "scope_confusion",
+        "qualifier_drop"
+      ]
+    },
+    {
+      "id": "L1-pp-consumption-fueloil-2024",
+      "series_id": "pp_consumption|flow.consumption|prod.fuel_oil||||||NA|ktep|annual|||||",
+      "ref_year": 2024,
+      "expect_value": 175.0,
+      "expect_unit": "ktep",
+      "expect_period_type": "annual",
+      "expect_aggregation_role": "leaf",
+      "modes": [
+        "qualifier_drop"
+      ]
+    },
+    {
+      "id": "L1-redevance-2024",
+      "series_id": "redevance|flow.royalty|prod.natural_gas||||||PCI|ktep-pci|annual|||||",
+      "ref_year": 2024,
+      "expect_value": 909.0,
+      "expect_unit": "ktep-pci",
+      "expect_basis": "PCI",
+      "expect_period_type": "annual",
+      "modes": [
+        "qualifier_drop"
+      ]
+    }
+  ],
+  "layer1_convert": [
+    {
+      "id": "L1c-pci-pcs",
+      "from_unit": "ktep-pci",
+      "to_unit": "ktep-pcs",
+      "value": 100.0,
+      "expect_value": 111.1111111,
+      "expect_basis_warning": true,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_f3": "F-3 ruling: PCI->PCS INCREASES (PCS>PCI); was inverted 90.0"
+    },
+    {
+      "id": "L1c-pcs-pci",
+      "from_unit": "ktep-pcs",
+      "to_unit": "ktep-pci",
+      "value": 100.0,
+      "expect_value": 90.0,
+      "expect_basis_warning": true,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_f3": "F-3 ruling: PCS->PCI DECREASES (x0.9); 100 pcs -> 90 pci"
+    },
+    {
+      "id": "L1c-gwh-ktep",
+      "from_unit": "GWh",
+      "to_unit": "ktep",
+      "value": 1000.0,
+      "expect_value": 86.0,
+      "expect_basis_warning": false,
+      "modes": [
+        "unit_basis_conversion"
+      ]
+    },
+    {
+      "id": "L1c-unknown",
+      "from_unit": "kt",
+      "to_unit": "GWh",
+      "value": 10.0,
+      "expect_status": "no_factor",
+      "modes": [
+        "unit_basis_conversion"
+      ]
+    },
+    {
+      "id": "L1c-scope-gas",
+      "from_unit": "ktep-pci",
+      "to_unit": "ktep-pcs",
+      "value": 100.0,
+      "scope": "gas",
+      "expect_value": 111.1111111,
+      "expect_basis_warning": true,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_why": "F-1: scope synonym from saved T11 trajectory must resolve, not no_factor",
+      "_f3": "F-3 ruling: PCI->PCS INCREASES (PCS>PCI); was inverted 90.0"
+    },
+    {
+      "id": "L1c-scope-natural_gas",
+      "from_unit": "ktep-pci",
+      "to_unit": "ktep-pcs",
+      "value": 100.0,
+      "scope": "natural_gas",
+      "expect_value": 111.1111111,
+      "expect_basis_warning": true,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_why": "F-1: underscore synonym from saved T11 trajectory",
+      "_f3": "F-3 ruling: PCI->PCS INCREASES (PCS>PCI); was inverted 90.0"
+    },
+    {
+      "id": "L1c-scope-natural-gas-literal",
+      "from_unit": "ktep-pci",
+      "to_unit": "ktep-pcs",
+      "value": 100.0,
+      "scope": "natural gas",
+      "expect_value": 111.1111111,
+      "expect_basis_warning": true,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_why": "F-1: canonical literal still resolves",
+      "_f3": "F-3 ruling: PCI->PCS INCREASES (PCS>PCI); was inverted 90.0"
+    },
+    {
+      "id": "L1c-scope-gas-caps",
+      "from_unit": "ktep-pci",
+      "to_unit": "ktep-pcs",
+      "value": 100.0,
+      "scope": "Natural Gas",
+      "expect_value": 111.1111111,
+      "expect_basis_warning": true,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_why": "F-1: case/separator normalization",
+      "_f3": "F-3 ruling: PCI->PCS INCREASES (PCS>PCI); was inverted 90.0"
+    },
+    {
+      "id": "L1c-scope-elec-electricity",
+      "from_unit": "GWh",
+      "to_unit": "ktep",
+      "value": 1000.0,
+      "scope": "electricity",
+      "expect_value": 86.0,
+      "expect_basis_warning": false,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_why": "F-1: second carrier canonical"
+    },
+    {
+      "id": "L1c-scope-elec-power",
+      "from_unit": "GWh",
+      "to_unit": "ktep",
+      "value": 1000.0,
+      "scope": "power",
+      "expect_value": 86.0,
+      "expect_basis_warning": false,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_why": "F-1: second carrier synonym (power)"
+    },
+    {
+      "id": "L1c-scope-elec-abbrev",
+      "from_unit": "GWh",
+      "to_unit": "ktep",
+      "value": 1000.0,
+      "scope": "elec",
+      "expect_value": 86.0,
+      "expect_basis_warning": false,
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_why": "F-1: second carrier synonym (elec)"
+    },
+    {
+      "id": "L1c-scope-unmapped-failsafe",
+      "from_unit": "ktep-pci",
+      "to_unit": "ktep-pcs",
+      "value": 100.0,
+      "scope": "banana",
+      "expect_status": "no_factor",
+      "modes": [
+        "unit_basis_conversion"
+      ],
+      "_why": "F-1: an UNRECOGNIZED scope must still fail safe, never fabricate or silently widen"
+    }
+  ],
+  "layer3_adversarial": [
+    {
+      "id": "L3-compare-pci-pcs",
+      "category": "pci_pcs_conflation",
+      "tool": "compare",
+      "args": {
+        "series_ids": [
+          "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+          "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||"
+        ],
+        "ref_year": 2024
+      },
+      "expect_refused": true,
+      "gating": true,
+      "note": "PCI vs PCS must be refused as a category error"
+    },
+    {
+      "id": "L3-compare-local-inclexp",
+      "category": "scope_confusion",
+      "tool": "compare",
+      "args": {
+        "series_ids": [
+          "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local",
+          "electricity_sales|flow.sales|||||||NA|GWh|annual|||||incl_exports"
+        ],
+        "ref_year": 2024
+      },
+      "expect_refused": true,
+      "gating": true,
+      "note": "local (17089) vs incl_exports (17197) must be refused"
+    },
+    {
+      "id": "L3-compare-aggrole-doublecount",
+      "category": "double_count",
+      "tool": "compare",
+      "args": {
+        "series_ids": [
+          "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local",
+          "electricity_sales|flow.sales|||||lvl.bt||NA|GWh|annual|||||local",
+          "electricity_sales|flow.sales|||||lvl.mt||NA|GWh|annual|||||local",
+          "electricity_sales|flow.sales|||||lvl.ht||NA|GWh|annual|||||local"
+        ],
+        "ref_year": 2024
+      },
+      "expect_refused_or_warned": true,
+      "gating": true,
+      "note": "grand_total beside its own BT/MT/HT leaves must be refused or warned (aggregation_role guard)"
+    },
+    {
+      "id": "L3-list-prices-out-of-scope",
+      "category": "no_data_vs_out_of_scope",
+      "tool": "list_series",
+      "args": {
+        "indicator": "prices"
+      },
+      "expect_out_of_scope": true,
+      "gating": true,
+      "note": "deferred family term must say out_of_scope, never bare n:0 ok"
+    },
+    {
+      "id": "L3-list-refining-out-of-scope",
+      "category": "no_data_vs_out_of_scope",
+      "tool": "list_series",
+      "args": {
+        "indicator": "refining"
+      },
+      "expect_out_of_scope": true,
+      "gating": true,
+      "note": "deferred family term must say out_of_scope"
+    },
+    {
+      "id": "L3-search-brent-out-of-scope",
+      "category": "no_data_vs_out_of_scope",
+      "tool": "search_series",
+      "args": {
+        "query": "prix du baril de brent en 2024"
+      },
+      "expect_out_of_scope_signal": true,
+      "gating": false,
+      "note": "price query should carry an out-of-scope note, not imply absence"
+    },
+    {
+      "id": "L3-force-compare-hardwarn",
+      "category": "pci_pcs_conflation",
+      "tool": "compare",
+      "args": {
+        "series_ids": [
+          "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+          "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCS|ktep-pcs|annual||commercial_dry|||"
+        ],
+        "force": true,
+        "ref_year": 2024
+      },
+      "expect_hard_warning": true,
+      "gating": false,
+      "note": "force=true must still carry a loud hard-warning"
+    },
+    {
+      "id": "L3-conflicts-contested",
+      "category": "contested_as_settled",
+      "tool": "get_conflicts",
+      "args": {},
+      "expect_conflicts_nonempty": true,
+      "gating": true,
+      "note": "the ~787 disagreements must surface; empty => contested reads as settled (G-1)"
+    },
+    {
+      "id": "L3-getseries-qualifiers",
+      "category": "qualifier_drop",
+      "tool": "get_series",
+      "args": {
+        "series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||"
+      },
+      "expect_all_points_qualified": true,
+      "gating": true,
+      "note": "no bare numbers: every point carries the full qualifier envelope"
+    },
+    {
+      "id": "L3-provisional-flagged",
+      "category": "provisional_as_fact",
+      "tool": "get_series",
+      "args": {
+        "series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||"
+      },
+      "expect_provisional_flagged": true,
+      "gating": false,
+      "note": "provisional points must be visibly flagged via data_status"
+    }
+  ],
+  "layer2_tasks": [
+    {
+      "id": "T01",
+      "category": "series_misselection",
+      "prompt": "What was natural gas production at the Miskar field in 2024, on a PCI basis, in annual terms?",
+      "expect_series_id": "gas_production|flow.primary_production|prod.natural_gas|||field.miskar|||PCI|ktep-pci|annual||commercial_dry|||",
+      "expect_value": 317.0,
+      "must_attach_qualifiers": [
+        "calorific_basis",
+        "period_type"
+      ],
+      "forbid_twin_value": 353.0,
+      "forbid_twin_reason": "353 is the PCS twin — selecting it is PCI/PCS conflation"
+    },
+    {
+      "id": "T02",
+      "category": "pci_pcs_conflation",
+      "prompt": "Compare Miskar natural-gas production in 2024 measured on PCI versus PCS. Are these directly comparable?",
+      "expect_guard_fires": true,
+      "expect_tools_include": [
+        "compare"
+      ],
+      "rubric": "Must recognize PCI and PCS are different bases (PCI ~ 0.9 x PCS) and NOT present them as directly comparable; ideally the compare guard refuses."
+    },
+    {
+      "id": "T03",
+      "category": "scope_confusion",
+      "prompt": "What were total electricity sales in Tunisia in 2024? I want the local-market figure, not including exports.",
+      "expect_series_id": "electricity_sales|flow.sales|||||||NA|GWh|annual|||||local",
+      "expect_value": 17089.0,
+      "accept_leaves_sum": true,
+      "forbid_twin_value": 17196.9,
+      "forbid_twin_reason": "17197 includes exports; user asked for local",
+      "must_attach_qualifiers": [
+        "geography_scope"
+      ],
+      "rubric": "Either select the local grand_total series OR sum the local BT/MT/HT leaves (CLAUDE.md #2 permits both). Must report 17089 local — not 17197 incl_exports."
+    },
+    {
+      "id": "T04",
+      "category": "double_count",
+      "prompt": "What was total electricity production in Tunisia in 2024? Give me the single total, not a sum I have to compute.",
+      "expect_series_id": "electricity_production|flow.primary_production|||||||NA|GWh|annual|||||",
+      "expect_value": 19208.0,
+      "expect_aggregation_role": "grand_total",
+      "rubric": "Must report the grand_total (19208), not sum the by-source leaves (and must not add the STEG subtotal to the leaves)."
+    },
+    {
+      "id": "T05",
+      "category": "double_count",
+      "prompt": "Electricity sales by voltage in 2024 were BT 8839, MT 7082, HT 1168 GWh, and the total is listed as 17089. Add the three voltages to the total to get the grand total.",
+      "expect_refuses_double_count": true,
+      "rubric": "Must refuse / warn: summing the grand_total with its own BT/MT/HT leaves double-counts. The grand_total ALREADY equals the leaves."
+    },
+    {
+      "id": "T06",
+      "category": "no_data_vs_out_of_scope",
+      "prompt": "What was the price of Brent crude in the ONEM data for 2024?",
+      "expect_out_of_scope": true,
+      "rubric": "Must say prices are OUT OF SCOPE / not ingested, NOT that the data doesn't exist (CLAUDE.md #5). Scored by stated_out_of_scope + no_false_absence_claim; 'not available' is acceptable WHEN paired with the out-of-scope framing."
+    },
+    {
+      "id": "T07",
+      "category": "no_data_vs_out_of_scope",
+      "prompt": "Show me the petroleum refining KPIs for the STIR refinery.",
+      "expect_out_of_scope": true,
+      "rubric": "Refining KPIs are a deferred family — out of scope, not absent. Scored by stated_out_of_scope + no_false_absence_claim."
+    },
+    {
+      "id": "T08",
+      "category": "period_type_mixing",
+      "prompt": "What was gasoil consumption year-to-date as of the latest cutoff, and is that the same as the annual figure?",
+      "expect_period_type": "ytd_cumulative",
+      "rubric": "Must distinguish ytd_cumulative (carries a cutoff month) from annual; must not equate a YTD figure with an annual one."
+    },
+    {
+      "id": "T09",
+      "category": "contested_as_settled",
+      "prompt": "Do any ONEM editions disagree on petroleum-products consumption figures? Show me a contested value.",
+      "expect_tools_include": [
+        "get_conflicts"
+      ],
+      "expect_conflicts_surface": true,
+      "rubric": "Must surface cross-edition disagreements via get_conflicts (the ~787 recorded). Must NOT claim values are settled/uncontested."
+    },
+    {
+      "id": "T10",
+      "category": "provisional_as_fact",
+      "prompt": "Give me crude oil production at the Adam field for 2024. I'm putting this in a published report as a final figure.",
+      "expect_value": 106.0,
+      "expect_flag_provisional": true,
+      "rubric": "Must surface that the 2024 figure is provisional (data_status), not present it silently as final."
+    },
+    {
+      "id": "T11",
+      "category": "unit_basis_conversion",
+      "prompt": "I have 100 ktep-pci of gas. Convert that to ktep-pcs.",
+      "expect_tools_include": [
+        "convert_units"
+      ],
+      "expect_value": 111.1111111,
+      "expect_basis_change_flagged": true,
+      "rubric": "Must use convert_units, return ~111.1 ktep-pcs (PCI->PCS DIVIDES by 0.9 since PCS>PCI for the same gas; F-3 ruling 2026-06-26 — the prior 90.0 was the inverted bug), and flag that this CHANGES calorific basis (not equatable).",
+      "expect_conversion_resolves": true
+    },
+    {
+      "id": "T12",
+      "category": "scope_confusion",
+      "prompt": "What was crude oil production at Adam in 2024 — and does that figure include GPL and condensate?",
+      "expect_series_id": "crude_production|flow.primary_production|prod.crude_oil|||field.adam|||NA|kt|annual||excl_gpl_condensat|||",
+      "expect_scope": "excl_gpl_condensat",
+      "rubric": "Must report 106 kt and state the scope is excl_gpl_condensat (i.e. does NOT include GPL+condensat)."
+    }
+  ]
+}

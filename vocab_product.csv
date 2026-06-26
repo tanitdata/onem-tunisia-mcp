@@ -1,0 +1,34 @@
+product_id,label_fr,label_en,label_ar,aliases,category,notes
+prod.crude_oil,Pétrole brut,Crude oil,نفط خام,,fossil_primary,
+prod.lgn,Liquides de gaz,LGN/NGL,سوائل الغاز الطبيعي,LGN,fossil_primary,
+prod.condensate,Condensât,Condensate,المتكثفات,Condensat|Condensât Gabès|Condensat Miskar|Condensat Hasdrubal,fossil_primary,bundled with crude
+prod.petroleum_products_total,Total Produits Pétroliers,Total pet. products,مجموع المشتقات النفطية,,aggregate,
+prod.refinery_gas,Gaz de raffinage,Refinery gas,غاز المصفاة,Fuel gaz|Fuel gaz STIR,pet_product,
+prod.lpg,GPL,LPG,غاز البترول المسيل,GPL primaire|GPL champs|GPL domestique|GPL Bouteille 13kg,pet_product,primaire=field+Gabès plant
+prod.gasoline,Essences,Gasoline,البنزين,Essence,pet_product,aggregate
+prod.gasoline_ssp,Essence Sans Plomb,Unleaded gasoline,بنزين بدون رصاص,Essence SSP|Essence Sans Pb|Essence Sans Plomb|Essence sans plomb ou super,pet_product,unleaded - dominant gasoline (~930 ktep); distinct from leaded Super
+prod.gasoline_super,Essence Super,Leaded super gasoline,بنزين سوبر,Super,pet_product,leaded super being phased out (~0); NOT same as Sans Plomb (vocab de-alias fix)
+prod.gasoline_premium,Essence Premium,Premium gasoline,بنزين ممتاز,,pet_product,
+prod.kerosene,Pétrole lampant,Kerosene,بترول الانارة,Pétrole,pet_product,Pétrole label ambiguous
+prod.jet,Jet aviation,Jet fuels,كيروزان الطيران,Jet|Jet fuels|Jet aviation,pet_product,
+prod.naphtha,Naphtha,Naphtha,نفطة,Virgin Naphte|Virgin Naphta,pet_product,
+prod.gasoil,Gasoil,Gas/diesel oil,غازوال,,pet_product,aggregate
+prod.gasoil_ordinaire,Gasoil ordinaire,Ordinary diesel,غازوال عادي,Gasoil 50 ppm,pet_product,50ppm pre-2017
+prod.gasoil_ss,Gasoil sans soufre,Sulphur-free diesel,غازوال بدون كبريت,Gasoil S.S.|Gasoil SS,pet_product,
+prod.gasoil_premium,Gasoil Premium,Premium diesel,غازوال ممتاز,,pet_product,
+prod.fuel_oil,Fuel oil,Fuel oil,فيول,Fuel,pet_product,aggregate
+prod.fuel_hts,Fuel HTS,High-sulphur fuel oil 3.5%,فيول مرتفع الكبريت,FHTS|Fuel oil lourd N°2 HTS|Fuel HTS,pet_product,
+prod.fuel_bts,Fuel BTS,Low-sulphur fuel oil 1%,فيول منخفض الكبريت,FBTS|Fuel BTS,pet_product,
+prod.petcoke,Coke de pétrole,Petroleum coke,فحم البترول,PETCOKE|Petcoke|petcoke,pet_product,dedup three spellings
+prod.white_spirit,White Spirit,White spirit,وايت سبيريت,,pet_product,non-energy use
+prod.other_pet_products,Autres produits pétroliers,Other pet. products,منتجات نفطية أخرى,Autres produits,pet_product,lubrifiants bitumes
+prod.natural_gas,Gaz Naturel,Natural gas,غاز طبيعي,Gaz|Gaz commercial sec,fossil_primary,accounted as dry commercial gas
+prod.re_total,Total Energies Renouvelables,Total renewable energy,مجموع الطاقات المتجددة,,aggregate,
+prod.solar_thermal,Solaire thermique,Solar heat,الطاقة الشمسية الحرارية,,renewable,
+prod.solar_pv,Solaire photovoltaïque,Solar photovoltaic,الطاقة الشمسية الفولطاضوئية,Solaire PV|Solaire|SOLAIRE,renewable,
+prod.geothermal,Géothermie,Geothermal energy,الطاقة الجوفية,Geothermal,renewable,EN matrix only - verify FR/AR
+prod.biomass,Biomasse,Bio-mass,الكتلة الحيوية,,renewable,charcoal=transformation
+prod.wind,Energie éolienne,Wind energy,طاقة الرياح,Eolienne|EOLIENNE,renewable,
+prod.hydro,Energie hydraulique,Hydro energy,الطاقة الكهرومائية,Hydraulique|HYDRAULIQUE,renewable,
+prod.heat,Chaleur,Derived heat,الحرارة,,carrier,
+prod.electricity,Electricité,Electrical energy,الكهرباء,Elec|Electricité primaire,carrier,Elec primaire is RE-sourced elec

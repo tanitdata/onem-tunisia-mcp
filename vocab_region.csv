@@ -1,0 +1,14 @@
+region_id,label,region_type,aliases,composition_or_notes
+reg.gov.tataouine,Tataouine,gouvernorat,,
+reg.gov.gabes_sfax_offshore,Golf de Gabès/Sfax offshore/Djerba/Zarzis,zone,Golf de Gabès/Sfax,offshore production zone
+reg.gov.sfax_onshore_mehdia,Sfax onshore/Mehdia,zone,,
+reg.gov.kebili,Kebili,gouvernorat,,
+reg.gov.nabeul_hammamet,Nabeul et Golf de Hammamet,zone,,
+reg.gov.kasserine,Kasserine,gouvernorat,,
+reg.dr.tunis,D.R. Tunis,steg_district,,"Tunis Ville, Ariana, Ezzahra, El Mourouj, Le Kram, Bardo, Manouba, El Menzeh"
+reg.dr.centre,D.R. Centre,steg_district,D.R.Centre,"Sousse, Sousse Nord, Monastir, Moknine, Mahdia, Kairouan, El Jem, Msaken, Enfidha"
+reg.dr.nord,D.R. Nord,steg_district,,"Zaghouan, Bizerte, ML Bourguiba, Nabeul, ML Bouzelfa, ML Temime, Hammamet"
+reg.dr.sud,D.R. Sud,steg_district,D.R. SUD,"Gabès, Kebili, Zarzis, Medenine, Jerba, Tataouine, Ben Guerdene, Gabès Sud/Nord"
+reg.dr.sfax,D.R. Sfax,steg_district,,"Sfax Ville, Jebeniana, Sfax Nord, Mahres, Sfax Sud"
+reg.dr.sud_ouest,D.R. S. Ouest,steg_district,D.R.S OUEST|D.R.S. OUEST,"Kasserine, Sidi Bouzid, Gafsa, Metlaoui, Tozeur, Meknassi, Sbeitla"
+reg.dr.nord_ouest,D.R. N. Ouest,steg_district,D.R.N. OUEST,"Beja, Jendouba, Le Kef, Siliana, Tabarka"

@@ -1,0 +1,24 @@
+flow_id,label_fr,label_en,label_ar,aliases,notes
+flow.primary_production,Production primaire,Primary production,انتاج اولي,Production nationale|Production,
+flow.import,Importation,Imports,استيراد,Importation,distinct from flow.purchase
+flow.stock_change,Variation des stocks,Stock change,تغيرات في المخزون,,
+flow.export,Exportations,Exports,صادرات,Exportation,
+flow.bunkers,Soutes internationales,Bunkers,النقل الدولي,,
+flow.gross_inland_consumption,Consommation intérieure brute,Gross inland consumption,الاستهلاك الداخلي الخام,,
+flow.transformation_input,Entrées en transformation,Transformation input,التحويلات الاستهلاك,Entrées en transformation,children thermal/refineries/charcoal
+flow.transformation_output,Sortie de transformation,Transformation output,التحويلات الانتاج,Sortie de transformation,
+flow.exchanges_transfers,"Echanges, transfer, restitutions","Exchanges and transfers, returns",تبادل تحويل اعادة استعمال,,
+flow.energy_branch_consumption,Consommation de la branche Energie,Consumption of the energy branch,استهلاك قطاع الطاقة,,
+flow.losses,Pertes,Losses,الفاقد,,
+flow.available_final,Disponible pour consom. Finale,Available for final consumption,المتاح للاستهلاك النهائي,,
+flow.final_non_energy,Consommation finale non énergétique,Final non-energy consumption,الاستهلاك النهائي للمنتجات الغير طاقية,,
+flow.final_energy,Consommation finale énergétique,Final energy consumption,الاستهلاك النهائي للطاقة,,parent of sectors
+flow.statistical_difference,Ecart statistique,Statistical difference,الفروقات الاحصائية,,
+flow.refining,Raffinage,Refining,تكرير,Raffinage,
+flow.royalty,Redevance totale,Royalty (Algerian gas transit),الاتاوة,Forfait fiscal|Forfait fiscal Gaz Algérien|Redevance|Redevance totale,toggle-bearing; same as forfait fiscal
+flow.purchase,Achats,Purchases,المشتريات,Achat|Achats gaz algérien,gas purchased from Algeria
+flow.demand,Demande,Demand,الطلب,Demande totale,
+flow.consumption,Consommation,Consumption,الاستهلاك,Consommation finale,
+flow.sales,Ventes,Sales,المبيعات,Ventes externes|Ventes locales,
+flow.resources,Ressources d'énergie primaire,Primary energy resources,الموارد,Ressources,production+redevance
+flow.solde,Solde,Balance/deficit,الرصيد,Solde énergétique,derived; redevance toggle

@@ -1,0 +1,106 @@
+{
+  "headline": "PASS",
+  "checks": [
+    {
+      "id": "C6_period_hygiene",
+      "status": "PASS",
+      "detail": "0 series_keys mix period_type"
+    },
+    {
+      "id": "C6b_unit_basis",
+      "status": "PASS",
+      "detail": "no series mixes unit or basis"
+    },
+    {
+      "id": "C2_pci_pcs",
+      "status": "PASS",
+      "detail": "2158 PCI/PCS pairs checked, 0 outside 0.9\u00b10.03: []"
+    },
+    {
+      "id": "C2b_pci_pcs_rowwise",
+      "status": "PASS",
+      "detail": "2094 by-field PCI/PCS row-pairs, 0 off 0.9\u00b10.04 (basis contamination): []"
+    },
+    {
+      "id": "C1_balance",
+      "status": "PASS",
+      "detail": "core-carrier imbalances: []; (all-product diffs are expected due to transformation/exchange terms, 0 flagged informational)"
+    },
+    {
+      "id": "C3_rollup",
+      "status": "PASS",
+      "detail": "rollup mismatches: none"
+    },
+    {
+      "id": "C10_rollup_completeness",
+      "status": "PASS",
+      "detail": "clean surface: 1314 table-totals, 0 leaf-sum\u2260Total (must be 0); 119 edition-cells flagged low-confidence & excluded: []"
+    },
+    {
+      "id": "C11_partition_overcount",
+      "status": "PASS",
+      "detail": "0 groups whose leaves sum >1.15x their grand_total (overlapping partitions): []"
+    },
+    {
+      "id": "C12_partition_structure",
+      "status": "PASS",
+      "detail": "0 groups with leaves but not exactly one grand_total: []"
+    },
+    {
+      "id": "C7_fr_ar_dedup",
+      "status": "PASS",
+      "detail": "0 observations from non-canonical (AR) sources (must be 0; AR is a translation)"
+    },
+    {
+      "id": "C9_provenance",
+      "status": "PASS",
+      "detail": "0 obs missing core provenance; 0 gas obs without PCI/PCS basis"
+    },
+    {
+      "id": "C6c_ytd_vs_annual",
+      "status": "PASS",
+      "detail": "0 series_keys shared between YTD and annual (must be 0)"
+    },
+    {
+      "id": "C4_cross_edition",
+      "status": "INFO",
+      "detail": "6308 multi-source (series,year,type,basis) cells; 787 disagree beyond tolerance (logged, resolved by precedence)"
+    },
+    {
+      "id": "C5_dec_ytd",
+      "status": "INFO",
+      "detail": "436/590 Dec-YTD == matching R\u00e9alis\u00e9-annual (exact reconciliation, e.g. gas demand 4644=4644); 154 differ (open current-year YTD + electricity NULL-dim over-match) \u2014 advisory, underlying values verified by C2."
+    },
+    {
+      "id": "C8_coverage",
+      "status": "INFO",
+      "detail": "81 canonical Conjoncture editions registered"
+    }
+  ],
+  "counts": {
+    "observations": 26899,
+    "preferred": 13142,
+    "low_confidence": 2709,
+    "escalated": 900,
+    "series": 593,
+    "by_family": {
+      "memento": 152,
+      "bilan": 3727,
+      "conjoncture": 23020
+    },
+    "by_period_type": {
+      "ytd_cumulative": 17165,
+      "annual": 9734
+    },
+    "by_template": {
+      "bilan-matrix-v2015": 250,
+      "conjoncture-tabular-v2024": 23020,
+      "bilan-matrix-v2024": 2200,
+      "memento-onem-v2024": 152,
+      "bilan-matrix-v2010": 1277
+    },
+    "ref_year_min": 2010,
+    "ref_year_max": 2026
+  },
+  "reconciliation_rows": 6308
+}

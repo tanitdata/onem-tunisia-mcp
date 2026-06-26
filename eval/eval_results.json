@@ -1,0 +1,381 @@
+{
+  "version": "1.1.0",
+  "layer1": {
+    "layer": 1,
+    "checks": 86,
+    "passed": 86,
+    "failed": 0,
+    "pass_rate": 1.0
+  },
+  "layer3": {
+    "layer": 3,
+    "checks": 10,
+    "passed": 10,
+    "failed": 0,
+    "gating": 7,
+    "gating_failed": 0,
+    "gate_failures": [],
+    "verdict": "GO"
+  },
+  "layer3_detail": [
+    {
+      "layer": 3,
+      "task_id": "L3-compare-pci-pcs",
+      "modes": [
+        "pci_pcs_conflation"
+      ],
+      "category": "pci_pcs_conflation",
+      "gating": true,
+      "check": "guard",
+      "passed": true,
+      "detail": "status=refused_incompatible (want a refusal)",
+      "note": "PCI vs PCS must be refused as a category error"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-compare-local-inclexp",
+      "modes": [
+        "scope_confusion"
+      ],
+      "category": "scope_confusion",
+      "gating": true,
+      "check": "guard",
+      "passed": true,
+      "detail": "status=refused_incompatible (want a refusal)",
+      "note": "local (17089) vs incl_exports (17197) must be refused"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-compare-aggrole-doublecount",
+      "modes": [
+        "double_count"
+      ],
+      "category": "double_count",
+      "gating": true,
+      "check": "guard",
+      "passed": true,
+      "detail": "status=refused_aggregation warned=True",
+      "note": "grand_total beside its own BT/MT/HT leaves must be refused or warned (aggregation_role guard)"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-list-prices-out-of-scope",
+      "modes": [
+        "no_data_vs_out_of_scope"
+      ],
+      "category": "no_data_vs_out_of_scope",
+      "gating": true,
+      "check": "guard",
+      "passed": true,
+      "detail": "status=out_of_scope",
+      "note": "deferred family term must say out_of_scope, never bare n:0 ok"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-list-refining-out-of-scope",
+      "modes": [
+        "no_data_vs_out_of_scope"
+      ],
+      "category": "no_data_vs_out_of_scope",
+      "gating": true,
+      "check": "guard",
+      "passed": true,
+      "detail": "status=out_of_scope",
+      "note": "deferred family term must say out_of_scope"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-search-brent-out-of-scope",
+      "modes": [
+        "no_data_vs_out_of_scope"
+      ],
+      "category": "no_data_vs_out_of_scope",
+      "gating": false,
+      "check": "guard",
+      "passed": true,
+      "detail": "status=ok oos_signal=True",
+      "note": "price query should carry an out-of-scope note, not imply absence"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-force-compare-hardwarn",
+      "modes": [
+        "pci_pcs_conflation"
+      ],
+      "category": "pci_pcs_conflation",
+      "gating": false,
+      "check": "guard",
+      "passed": true,
+      "detail": "status=compared_with_warning hard_warning=True",
+      "note": "force=true must still carry a loud hard-warning"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-conflicts-contested",
+      "modes": [
+        "contested_as_settled"
+      ],
+      "category": "contested_as_settled",
+      "gating": true,
+      "check": "guard",
+      "passed": true,
+      "detail": "status=ok n=787",
+      "note": "the ~787 disagreements must surface; empty => contested reads as settled (G-1)"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-getseries-qualifiers",
+      "modes": [
+        "qualifier_drop"
+      ],
+      "category": "qualifier_drop",
+      "gating": true,
+      "check": "guard",
+      "passed": true,
+      "detail": "8 points, all qualified",
+      "note": "no bare numbers: every point carries the full qualifier envelope"
+    },
+    {
+      "layer": 3,
+      "task_id": "L3-provisional-flagged",
+      "modes": [
+        "provisional_as_fact"
+      ],
+      "category": "provisional_as_fact",
+      "gating": false,
+      "check": "guard",
+      "passed": true,
+      "detail": "8 provisional / 8 points",
+      "note": "provisional points must be visibly flagged via data_status"
+    }
+  ],
+  "layer2_status": "loaded saved run (bedrock, us.anthropic.claude-opus-4-8, 5 runs/task, re-scored)",
+  "layer2": {
+    "model": "us.anthropic.claude-opus-4-8",
+    "runs": 5,
+    "by_category": {
+      "series_misselection": {
+        "mean": 1.0,
+        "min": 1.0,
+        "n_tasks": 1
+      },
+      "pci_pcs_conflation": {
+        "mean": 1.0,
+        "min": 1.0,
+        "n_tasks": 1
+      },
+      "scope_confusion": {
+        "mean": 1.0,
+        "min": 1.0,
+        "n_tasks": 2
+      },
+      "double_count": {
+        "mean": 1.0,
+        "min": 1.0,
+        "n_tasks": 2
+      },
+      "no_data_vs_out_of_scope": {
+        "mean": 0.9,
+        "min": 0.8,
+        "n_tasks": 2
+      },
+      "period_type_mixing": {
+        "mean": 1.0,
+        "min": 1.0,
+        "n_tasks": 1
+      },
+      "contested_as_settled": {
+        "mean": 1.0,
+        "min": 1.0,
+        "n_tasks": 1
+      },
+      "provisional_as_fact": {
+        "mean": 1.0,
+        "min": 1.0,
+        "n_tasks": 1
+      },
+      "unit_basis_conversion": {
+        "mean": 0.4,
+        "min": 0.4,
+        "n_tasks": 1
+      }
+    },
+    "per_task": [
+      {
+        "task_id": "T01",
+        "category": "series_misselection",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T02",
+        "category": "pci_pcs_conflation",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T03",
+        "category": "scope_confusion",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T04",
+        "category": "double_count",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T05",
+        "category": "double_count",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T06",
+        "category": "no_data_vs_out_of_scope",
+        "mean_pass": 0.8,
+        "variance": 0.16
+      },
+      {
+        "task_id": "T07",
+        "category": "no_data_vs_out_of_scope",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T08",
+        "category": "period_type_mixing",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T09",
+        "category": "contested_as_settled",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T10",
+        "category": "provisional_as_fact",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      },
+      {
+        "task_id": "T11",
+        "category": "unit_basis_conversion",
+        "mean_pass": 0.4,
+        "variance": 0.24
+      },
+      {
+        "task_id": "T12",
+        "category": "scope_confusion",
+        "mean_pass": 1.0,
+        "variance": 0.0
+      }
+    ]
+  },
+  "per_failure_mode": {
+    "pci_pcs_conflation": {
+      "passed": 20,
+      "total": 20,
+      "pass_rate": 1.0,
+      "layers": [
+        1,
+        3,
+        2
+      ],
+      "layer2_mean": 1.0
+    },
+    "qualifier_drop": {
+      "passed": 87,
+      "total": 87,
+      "pass_rate": 1.0,
+      "layers": [
+        1,
+        3
+      ]
+    },
+    "scope_confusion": {
+      "passed": 28,
+      "total": 28,
+      "pass_rate": 1.0,
+      "layers": [
+        1,
+        3,
+        2
+      ],
+      "layer2_mean": 1.0
+    },
+    "double_count": {
+      "passed": 9,
+      "total": 9,
+      "pass_rate": 1.0,
+      "layers": [
+        1,
+        3,
+        2
+      ],
+      "layer2_mean": 1.0
+    },
+    "unit_basis_conversion": {
+      "passed": 9,
+      "total": 9,
+      "pass_rate": 1.0,
+      "layers": [
+        1,
+        2
+      ],
+      "layer2_mean": 0.4
+    },
+    "no_data_vs_out_of_scope": {
+      "passed": 3,
+      "total": 3,
+      "pass_rate": 1.0,
+      "layers": [
+        3,
+        2
+      ],
+      "layer2_mean": 0.9
+    },
+    "contested_as_settled": {
+      "passed": 1,
+      "total": 1,
+      "pass_rate": 1.0,
+      "layers": [
+        3,
+        2
+      ],
+      "layer2_mean": 1.0
+    },
+    "provisional_as_fact": {
+      "passed": 1,
+      "total": 1,
+      "pass_rate": 1.0,
+      "layers": [
+        3,
+        2
+      ],
+      "layer2_mean": 1.0
+    },
+    "series_misselection": {
+      "passed": 0,
+      "total": 0,
+      "pass_rate": null,
+      "layers": [
+        2
+      ],
+      "layer2_mean": 1.0
+    },
+    "period_type_mixing": {
+      "passed": 0,
+      "total": 0,
+      "pass_rate": null,
+      "layers": [
+        2
+      ],
+      "layer2_mean": 1.0
+    }
+  },
+  "verdict": "GO"
+}

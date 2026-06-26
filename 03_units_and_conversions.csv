@@ -1,0 +1,65 @@
+record_type,unit_code,unit_label_fr,quantity_kind,from_unit,to_unit,factor,calorific_basis,scope,source,note
+unit,kt,Kilo tonne (mille tonnes),mass,,,,,,memento p3,1e3 t
+unit,Mt,Million de tonne,mass,,,,,,memento p3,1e6 t
+unit,t,Tonne,mass,,,,,,derived,
+unit,tep,Tonne équivalent pétrole,energy,,,,,,memento p3,
+unit,ktep,Mille tep (1000 tep),energy,,,,,,memento p3,
+unit,Mtep,Million de tep,energy,,,,,,memento p3,
+unit,ktep-pci,Mille tep PCI,energy,,,,PCI,gas/redevance/achats/demande,memento p7,lower heating value basis
+unit,ktep-pcs,Mille tep PCS,energy,,,,PCS,gas/redevance/achats/demande,memento p7,higher heating value basis
+unit,bep,Baril équivalent pétrole,energy,,,,,,memento p3,
+unit,kbep,Mille bep,energy,,,,,,memento p3,glossary mislabels as ktep
+unit,GWh,Giga Watt heure,energy_elec,,,,,,memento p3,
+unit,MW,Méga Watt,power,,,,,,memento p3,installed/peak capacity
+unit,barils/jour,Barils par jour,flow_rate,,,,,,memento p8,crude production rate
+unit,kbbl/j,Mille barils par jour,flow_rate,,,,,,conjoncture p39,
+unit,millions m3/j,Millions de m³ par jour,flow_rate_gas,,,,,,memento p17,gas production rate
+unit,Mm3/j,Million de normal m³ par jour,flow_rate_gas,,,,,,conjoncture p39,normal cubic meters
+unit,$/baril,Dollar US par baril,price,,,,,,memento p20,Brent
+unit,$/bbl,Dollar US par baril,price,,,,,,conjoncture,same as $/baril
+unit,DT/baril,Dinar tunisien par baril,price,,,,,,conjoncture p14,
+unit,DT/$,Dinar par dollar,fx_rate,,,,,,memento p20,exchange rate
+unit,$/DT,Dollar par dinar,fx_rate,,,,,,memento p20,inverse convention used in M-T26
+unit,millimes/litre,Millimes par litre,price,,,,,,memento p21,retail fuel
+unit,millimes/kg,Millimes par kg,price,,,,,,conjoncture p14,GPL domestique
+unit,millimes/kWh,Millimes par kWh,price,,,,,,memento p21,electricity
+unit,DT/t,Dinar par tonne,price,,,,,,memento p21,fuel oil
+unit,DT/tep-pcs,Dinar par tep PCS,price,,,,PCS,gas price,memento p21,
+unit,$/TEP,Dollar par tep,price,,,,,gas import,memento p22,PCS basis implied
+unit,DT/TEP,Dinar par tep,price,,,,,gas import,memento p22,
+unit,DT/Bouteille,Dinar par bouteille 13kg,price,,,,,GPL,memento p21,
+unit,MDT,Million de dinars,monetary,,,,,,conjoncture p8,trade value
+unit,tep/GWh,tep par GWh,intensity,,,,,,conjoncture p27,specific consumption
+unit,tep-pcs/GWh,tep PCS par GWh,intensity,,,,PCS,specific consumption,memento p10,
+unit,tep/t,tep par tonne,intensity,,,,,conversion,memento p22,product energy density
+unit,%,Pourcentage,ratio,,,,,,all,Var% TCAM shares
+unit,count,Nombre,count,,,,,,memento p5,permits wells discoveries
+unit,m,Mètre (profondeur),length,,,,,,conjoncture p30,well depth
+conversion,,,,GWh,ktep,0.086,,electricity,memento p23 M-T34,GWh to ktep
+conversion,,,,ktep,GWh,11.630,,electricity,memento p23 M-T34,ktep to GWh
+conversion,,,,PCI,PCS,1.1111111111,PCI->PCS,natural gas,memento p23 M-T35,"PCI=0.9*PCS => PCS=PCI/0.9; PCI->PCS multiplies by 1/0.9 (PCS>PCI, e.g. Miskar 2024 PCI317<PCS353). F-3 ruling 2026-06-26: prior 0.9 was inverted"
+conversion,,,,PCS,PCI,0.9,PCI->PCS,natural gas,memento p23 M-T35,"PCS->PCI multiplies by 0.9 (PCI<PCS); reciprocal of PCI->PCS. F-3 ruling 2026-06-26"
+conversion,,,,baril,litre,159,,volume,memento p22 M-T31,1 bbl = 159 L
+conversion,,,,baril,m3,0.159,,volume,memento p22 M-T31,
+conversion,,,,litre,baril,0.0063,,volume,memento p22 M-T31,
+conversion,,,,m3,baril,6.289,,volume,memento p22 M-T31,
+conversion,,,,m3,litre,1000,,volume,memento p22 M-T31,
+conversion,,,,t_crude_zarzaitine,tep,1.03,,crude oil quality,memento p22 M-T32,Qualité zarzaitine
+conversion,,,,t_crude_ashtart,tep,1.008,,crude oil quality,memento p22 M-T32,Qualité ashtart
+conversion,,,,t_crude_MAP,tep,1.023,,crude oil MAP,memento p22 M-T32,Moyenne annuelle pondérée 2023/2024
+conversion,,,,t_fuel_lourd,tep,0.98,,product tep/t,memento p23 M-T33,density 0.965
+conversion,,,,t_gasoil,tep,1.027,,product tep/t,memento p23 M-T33,density 0.844
+conversion,,,,t_petrole_lampant,tep,1.032,,product tep/t,memento p23 M-T33,density 0.798
+conversion,,,,t_essence_ssp,tep,1.045,,product tep/t,memento p23 M-T33,density 0.771
+conversion,,,,t_jet,tep,1.035,,product tep/t,memento p23 M-T33,density 0.794
+conversion,,,,t_gpl,tep,1.106,,product tep/t,memento p23 M-T33,density 0.560
+conversion,,,,t_virgin_naphte,tep,1.054,,product tep/t,memento p23 M-T33,density 0.720
+conversion,,,,t_white_spirit,tep,1.041,,product tep/t,memento p23 M-T33,density 0.775
+prefix,k,kilo,prefix,,,1e3,,,memento p22,
+prefix,M,méga,prefix,,,1e6,,,memento p22,
+prefix,G,giga,prefix,,,1e9,,,memento p22,
+prefix,T,téra,prefix,,,1e12,,,memento p22,
+prefix,m,milli,prefix,,,1e-3,,,memento p22,
+prefix,μ,micro,prefix,,,1e-6,,,memento p22,
+prefix,n,nano,prefix,,,1e-9,,,memento p22,
+prefix,p,pico,prefix,,,1e-12,,,memento p22,
