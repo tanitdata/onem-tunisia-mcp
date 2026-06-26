@@ -3,6 +3,8 @@
 **A qualifier-aware [MCP](https://modelcontextprotocol.io) server over Tunisian energy time-series
 (2010–2026), derived from public ONEM reports.**
 
+📄 **Project page:** [tanitdata.org/en/tools/onem-mcp](https://tanitdata.org/en/tools/onem-mcp)
+
 > ⚠️ **Unofficial & independent.** This is an independent, community project. It is **not affiliated
 > with, authorized by, or endorsed by ONEM or the Tunisian Ministry of Industry, Mines and Energy.**
 > Figures are extracted from public reports by an automated pipeline and may contain errors. For
@@ -21,6 +23,37 @@ An MCP server an LLM client (e.g. Claude Desktop) can query for Tunisian energy 
 consumption, trade, balances, royalties — across **Bilan**, **Memento (Chiffres clés)**, and
 **Conjoncture** report families. The data lives in a long-format **DuckDB** store; the server exposes it
 through tools that an LLM selects from, opened **read-only**.
+
+## How it works
+
+You ask a question in natural language; the LLM client chains the server's tools to find the
+series, fetch it, and answer with cited figures:
+
+1. **Discover** — `search_series` / `list_series` locate the right series from a free-text query
+   (593 series across 13 indicators), surfacing twin distinctions and flagging out-of-scope families.
+2. **Retrieve** — `get_series` / `get_observation` return the values, each carrying its **full
+   qualifier envelope** (calorific basis, period type + YTD cutoff, scope, geography, data status)
+   and **cell-level provenance** (source edition, page, table, exact cell).
+3. **Reason safely** — `compare` **refuses** to line up incompatible series (PCI vs PCS, annual vs
+   YTD, local vs incl-exports); `convert_units` only applies documented factors; `get_conflicts`
+   exposes cross-edition disagreements; `describe_series` surfaces the source's own footnotes.
+
+Every answer is therefore traceable to an ONEM report cell and carries the qualifiers that make it
+true — the model cannot return a bare, basis-stripped number.
+
+## Example queries
+
+Ask your MCP client questions like:
+
+- *"Tunisia's natural gas production on a PCI basis, annual, for 2024."*
+- *"Electricity sales in 2024 — local vs including exports."* (returns both, kept distinct)
+- *"What was the Algerian-gas royalty (redevance) to end-April 2026?"* → **182 ktep-pci** (PCI,
+  year-to-date, cutoff month 4, *provisional*) — sourced to *Conjoncture énergétique à fin avril 2026*,
+  table C-T1, p.5.
+- *"Compare natural-gas production PCI with PCS."* → the server **refuses** (incompatible calorific
+  basis) rather than returning a misleading difference.
+- *"What's the Transmed pipeline transit volume?"* → **out-of-scope / not ingested** (a deferred
+  family) — explicitly *not* "no data exists."
 
 ## Why it's different — *qualifier-aware*
 
@@ -169,6 +202,54 @@ The server ships with a three-layer eval (see [`eval/`](eval/)):
 
 Layers 1 and 3 are the hard, credential-free regression gate; Layer 2 is the richer, stochastic layer
 on top. Results and findings are in [`eval/`](eval/).
+
+## Citation
+
+If you use onem-tunisia-mcp in your work, please cite **both** the software and the original data.
+
+### Software
+
+> Gasmi, T. (2026). *onem-tunisia-mcp: A Qualifier-Aware MCP Server over Tunisia's National Energy
+> Time-Series.* Zenodo. https://doi.org/10.5281/zenodo.20942629
+
+```bibtex
+@misc{gasmi2026onemtunisiamcp,
+  title     = {onem-tunisia-mcp: A Qualifier-Aware MCP Server over Tunisia's
+               National Energy Time-Series},
+  author    = {Gasmi, Tarek},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20942629},
+  url       = {https://doi.org/10.5281/zenodo.20942629}
+}
+```
+
+The DOI above is the *concept DOI* — it always resolves to the latest version. Project page:
+[tanitdata.org/en/tools/onem-mcp](https://tanitdata.org/en/tools/onem-mcp).
+
+### Data
+
+Data served by onem-tunisia-mcp is derived and restructured from public reports published by the
+**Observatoire National de l'Energie et des Mines (ONEM)**, Ministère de l'Industrie, des Mines et de
+l'Énergie, Tunisie, via [energiemines.gov.tn](https://www.energiemines.gov.tn). The underlying figures
+are ONEM's; every value this server returns carries cell-level source attribution (report edition,
+page, table, and cell). When publishing results, cite the originating source:
+
+```bibtex
+@misc{onem_tunisia,
+  title  = {Rapports énergétiques (Bilan National de l'Energie, Memento /
+            Chiffres clés, Conjoncture énergétique)},
+  author = {{Observatoire National de l'Energie et des Mines (ONEM), Tunisie}},
+  year   = {2026},
+  url    = {https://www.energiemines.gov.tn},
+  note   = {Données restructurées via le serveur onem-tunisia-mcp. Les chiffres
+            sont extraits de rapports publics et peuvent contenir des erreurs ;
+            pour les données officielles, consulter l'ONEM directement.}
+}
+```
+
+This is an independent, unofficial project — not affiliated with or endorsed by ONEM or the Ministry
+(see the disclaimer at the top).
 
 ## License
 
